@@ -60,3 +60,70 @@ func conversion() {
 conversion()
 ```
 
+<br>
+
+> 수정
+
+1. 함수명 동사형으로 수정
+2. readLine을 함수로 
+3. 함수에 매개변수와 리턴 값을 넣음
+4. 입력값이 없을 경우 예외처리
+
+```swift
+print("값을 입력해주세요 -> 숫자+단위\n끝내려면 end를 입력해주세요")
+
+// 입력값 받기
+func getInput() -> String{
+    let input = readLine() ?? "end"
+    return input
+}
+
+// inputValue에서 cm/m 분리
+func getUnitString(_ userInput: String) -> String {
+    var cmOrM = ""
+  // 입력값 문자만 가져옴
+    cmOrM = userInput.trimmingCharacters(in: CharacterSet.letters.inverted) 
+    return cmOrM
+}
+
+// inputValue에서 숫자만 분리
+func getUnitNumber(_ userInput: String) -> Double {
+    var num = 0.0
+  // 입력값 숫자만 가져옴
+    num = Double(userInput.trimmingCharacters
+                 (in:CharacterSet.decimalDigits.inverted))! 
+    return num
+}
+
+// cm -> m
+func convertCentiToM(_ userInput: String) {
+    var result = 0.0
+    let meter = "m"
+    result = getUnitNumber(userInput) / Double(100)
+    print("\(result)\(meter)")
+}
+
+// m -> cm
+func convertMeterToCm(_ userInput: String) {
+    var result = 0.0
+    let centi = "cm"
+    result = getUnitNumber(userInput) * Double(100)
+    print("\(result)\(centi)")
+}
+
+// cm <-> m
+while true {
+   let userInput = getInput()
+    if userInput == "end" {
+        break
+    }
+    if getUnitString(userInput) == "cm" {
+        convertCentiToM(userInput)
+    } else if getUnitString(userInput) == "m" {
+        convertMeterToCm(userInput)
+    }
+}
+```
+
+
+
