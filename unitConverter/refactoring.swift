@@ -79,6 +79,56 @@ enum length: Double {
     case m = 100
     case inch = 2.54
     case yard = 91.44
+    
+    static let lengthtype = [cm,m,inch,yard]
+}
+
+// 변환함수 (예.18cm / 18inch 입력 시)
+func convert(_ inputDic:[String:String]) -> Array<String>{
+    let number = Double(inputDic["number"] ?? "")
+    let from = inputDic["from"]
+    let to = inputDic["to"]
+    var result:[String] = []
+    
+    if from != "" && to == "" {
+        switch inputDic["from"] {
+        case "cm"?:
+            for lengthTypeVal in length.lengthtype {
+                result.append(String(number! / lengthTypeVal.rawValue) + String(describing: lengthTypeVal))
+            }
+            result.remove(at: 0)
+            
+        default: // cm가 아닐때 숫자 * from / to
+            var fromRawVal = 0.0
+            var convertUnit:[String] = []
+            var centi = 0.0
+            
+            // from단위가 length에 있는지 판단하고, 같은단위와 cm를 제외한 나머지 단위들을 convertUnit배열에 삽입
+            for i in 0 ..< length.lengthtype.count {
+                if String(describing: length.lengthtype[i]) != from && String(describing: length.lengthtype[i]) != "cm" {
+                    convertUnit.append(String(describing: length.lengthtype[i]))
+                }
+            }
+            // cm 계산하여 centi에 대입
+            for fromUnit in length.lengthtype {
+                if from == String(describing: fromUnit) {
+                    fromRawVal = fromUnit.rawValue
+                    centi = number! * fromRawVal
+                }
+            }
+            // 연산
+            for lengthTypeVal in length.lengthtype {
+                for convertUnitVal in convertUnit {
+                    if String(describing: lengthTypeVal) == convertUnitVal {
+                        result.append(String(centi / lengthTypeVal.rawValue) + String(describing: convertUnitVal))
+                        
+                    }
+                }
+            }
+            result.insert(String(centi) + "cm", at: 0)
+        }
+    }
+    return result
 }
 
 while true {
