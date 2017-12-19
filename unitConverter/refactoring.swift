@@ -83,49 +83,146 @@ enum length: Double {
     static let lengthtype = [cm,m,inch,yard]
 }
 
-// 변환함수 (예.18cm / 18inch 입력 시)
-func convert(_ inputDic:[String:String]) -> Array<String>{
+// 무게 단위
+enum weigth: Double {
+    case g = 1
+    case kg = 1000
+    case lb = 453.592
+    case oz = 28.3495
+    
+    static let weigthType = [g,kg,lb,oz]
+}
+// 부피 단위
+enum volume: Double {
+    case l = 1
+    case pt = 0.473176
+    case qt = 0.946353
+    case gal = 3.78541
+    
+    static let volumeType = [l,pt,qt,gal]
+}
+
+// 기본 단위 체크
+func checkBaseUnit(_ inputDic:[String:String]) -> String {
+    let baseUnit:[String] = ["cm","g","l"]
+    var base = ""
+    for unit in baseUnit{
+        if inputDic["from"] == unit {
+            base = unit
+        }
+    }
+    return base
+}
+
+// 기본단위 변환함수(예.180cm -> [m,inch,yard])
+func convertBaseTo(_ inputDic:[String:String]) -> Array<String>{
+    let base = checkBaseUnit(inputDic)
     let number = Double(inputDic["number"] ?? "")
     let from = inputDic["from"]
     let to = inputDic["to"]
     var result:[String] = []
     
-    if from != "" && to == "" {
-        switch inputDic["from"] {
-        case "cm"?:
-            for lengthTypeVal in length.lengthtype {
-                result.append(String(number! / lengthTypeVal.rawValue) + String(describing: lengthTypeVal))
+    if from == base && to == "" {
+        switch base {
+        case "cm":
+            for lengthCase in length.lengthType {
+                result.append(String(number! / lengthCase.rawValue) + String(describing: lengthCase))
             }
             result.remove(at: 0)
-            
-        default: // cm가 아닐때 숫자 * from / to
-            var fromRawVal = 0.0
-            var convertUnit:[String] = []
-            var centi = 0.0
-            
-            // from단위가 length에 있는지 판단하고, 같은단위와 cm를 제외한 나머지 단위들을 convertUnit배열에 삽입
-            for i in 0 ..< length.lengthtype.count {
-                if String(describing: length.lengthtype[i]) != from && String(describing: length.lengthtype[i]) != "cm" {
-                    convertUnit.append(String(describing: length.lengthtype[i]))
-                }
+        case "g":
+            for weigthCase in weigth.weigthType {
+                result.append(String(number! / weigthCase.rawValue) + String(describing: weigthCase))
             }
-            // cm 계산하여 centi에 대입
-            for fromUnit in length.lengthtype {
-                if from == String(describing: fromUnit) {
-                    fromRawVal = fromUnit.rawValue
-                    centi = number! * fromRawVal
-                }
+            result.remove(at: 0)
+        case "l":
+            for volumeCase in volume.volumeType {
+                result.append(String(number! / volumeCase.rawValue) + String(describing: volumeCase))
             }
-            // 연산
-            for lengthTypeVal in length.lengthtype {
-                for convertUnitVal in convertUnit {
-                    if String(describing: lengthTypeVal) == convertUnitVal {
-                        result.append(String(centi / lengthTypeVal.rawValue) + String(describing: convertUnitVal))
-                        
-                    }
-                }
+            result.remove(at: 0)
+        default:
+            ()
+        }
+    }
+    return result
+}
+
+// 기본단위 아닐때 기본단위로 변환(예.180m -> cm)
+// 숫자 * from
+func convertBase(_ inputDic:[String:String]) -> String {
+    let base = checkBaseUnit(inputDic)
+    let number = Double(inputDic["number"] ?? "")
+    let from = inputDic["from"]
+    var result = ""
+    
+    if from != "" && from != base {
+        for lengthCase in length.lengthType {
+            if from == String(describing: lengthCase) && from != "cm" {
+                result.append(String(number! * lengthCase.rawValue) + "cm")
             }
-            result.insert(String(centi) + "cm", at: 0)
+        }
+        for weigthCase in weigth.weigthType {
+            if from == String(describing: weigthCase) && from != "g" {
+                result.append(String(number! * weigthCase.rawValue) + "g")
+            }
+        }
+        for volumeCase in volume.volumeType {
+            if from == String(describing: volumeCase) && from != "l" {
+                result.append(String(number! * volumeCase.rawValue) + "l")
+            }
+        }
+    }
+    return result
+}
+
+// from -> to // from -> to,secTo
+func convertFromTo(_ inputDic:[String:String]) -> Array<String> {
+    let from = inputDic["from"]
+    let to = inputDic["to"]
+    let sec = inputDic["secTo"]
+    let base = checkBaseUnit(inputDic)
+    var toRawVal = 0.0
+    var toUnit = ""
+    var secRawVal = 0.0
+    var secUnit = ""
+    let convertBaseResult = convertBase(inputDic) // "18000cm"
+    let separateBaseNum = convertBaseResult.trimmingCharacters(in: CharacterSet.decimalDigits.inverted) // 18000
+    var result:[String] = []
+    
+    if from != base && to != "" || sec != "" {
+        for lengthCase in length.lengthType {
+            if to == String(describing: lengthCase) {
+                toRawVal = lengthCase.rawValue
+                toUnit = String(describing: lengthCase)
+            }
+            if sec == String(describing: lengthCase) {
+                secRawVal = lengthCase.rawValue
+                secUnit = String(describing: lengthCase)
+            }
+        }
+        for weigthCase in weigth.weigthType {
+            if to == String(describing: weigthCase) {
+                toRawVal = weigthCase.rawValue
+                toUnit = String(describing: weigthCase)
+            }
+            if sec == String(describing: weigthCase) {
+                secRawVal = weigthCase.rawValue
+                secUnit = String(describing: weigthCase)
+            }
+        }
+        for volumeCase in volume.volumeType {
+            if to == String(describing: volumeCase) {
+                toRawVal = volumeCase.rawValue
+                toUnit = String(describing: volumeCase)
+            }
+            if sec == String(describing: volumeCase) {
+                secRawVal = volumeCase.rawValue
+                secUnit = String(describing: volumeCase)
+            }
+        }
+        result.append(String(Double(separateBaseNum)! / toRawVal) + toUnit)
+        
+        if sec != "" {
+            result.append(String(Double(separateBaseNum)! / secRawVal) + secUnit)
         }
     }
     return result
@@ -133,11 +230,23 @@ func convert(_ inputDic:[String:String]) -> Array<String>{
 
 while true {
     let userInput = getInput()
+    let inputDic = makeDic(userInput)
+    let base = checkBaseUnit(inputDic)
+    let from = inputDic["from"]
+    let to = inputDic["to"]
+    let sec = inputDic["secTo"]
+    
     if userInput == "quit" || userInput == "q" {
         break
     }
-    let inputDic = makeDic(userInput)
-    print(convert(inputDic))
+    
+    if from == base && to == "" {
+        print(convertBaseTo(inputDic))
+    } else if from != "" && from != base && to == "" {
+        print(convertBase(inputDic))
+    } else if from != base && to != "" || sec != "" {
+        print(convertFromTo(inputDic))
+    }
 }
 
 
