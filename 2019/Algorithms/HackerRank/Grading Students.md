@@ -1,9 +1,3 @@
-![image-20190306165504370](/Users/jina/Library/Application Support/typora-user-images/image-20190306165504370.png)
-
-![image-20190306165527800](/Users/jina/Library/Application Support/typora-user-images/image-20190306165527800.png)
-
-![image-20190306165558339](/Users/jina/Library/Application Support/typora-user-images/image-20190306165558339.png)
-
 ```swift
 import Foundation
 

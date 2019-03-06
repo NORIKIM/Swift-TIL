@@ -1,15 +1,3 @@
-**Function Description**
-
-Complete the *timeConversion* function in the editor below. It should return a new string representing the input time in 24 hour format.
-
-timeConversion has the following parameter(s):
-
-- *s*: a string representing time in  12 hour format
-
-![image-20190306164954586](/Users/jina/Library/Application Support/typora-user-images/image-20190306164954586.png)
-
-
-
 ```swift
 import Foundation
 
