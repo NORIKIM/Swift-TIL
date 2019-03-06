@@ -5,5 +5,5 @@
 
 ## Algorithms
 * HackerRank
- - [Grading Students](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/Algorithms/HackerRank/Grading%20Students.md)
- - [Time Conversion](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/Algorithms/HackerRank/Time%20Conversion.md)
+  - [Grading Students](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/Algorithms/HackerRank/Grading%20Students.md)
+  - [Time Conversion](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/Algorithms/HackerRank/Time%20Conversion.md)
