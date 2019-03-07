@@ -1,6 +1,6 @@
 **2019.03.07**
 
-#Delegation Design Pattern
+# Delegation Design Pattern
 
 
 
@@ -47,5 +47,4 @@ class ViewController: UIViewController, UITextFieldDelegate {
 ```
 
 <img width="284" alt="delegate" src="https://user-images.githubusercontent.com/31604976/53941977-f18d0d00-40fc-11e9-82e3-64e072bee823.png">
-![delegate적용후](/Users/jina/Desktop/image/delegate적용후.png)
-
+<img width="284" alt="delegate" src="https://user-images.githubusercontent.com/31604976/53942096-3fa21080-40fd-11e9-95f1-a07a61d34e90.png">
