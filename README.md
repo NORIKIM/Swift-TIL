@@ -2,6 +2,7 @@
 
 ## swift
 * [Closure](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/closure.md)
+* [Delegate](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/DelegateDesignPattern.md)
 
 ## Algorithms
 * HackerRank
