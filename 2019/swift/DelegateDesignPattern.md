@@ -46,7 +46,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
 }
 ```
 
-![delegate적용전](/Users/jina/Desktop/image/delegate적용전.png)
-
+<img width="284" alt="delegate" src="https://user-images.githubusercontent.com/31604976/53941977-f18d0d00-40fc-11e9-82e3-64e072bee823.png">
 ![delegate적용후](/Users/jina/Desktop/image/delegate적용후.png)
 
