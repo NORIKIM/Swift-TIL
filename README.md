@@ -11,5 +11,3 @@
   - [Time Conversion](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/Algorithms/HackerRank/Time%20Conversion.md)
   - [Apple and Orange](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/Algorithms/HackerRank/Apple%20and%20Orange.md)
   - [Kangaroo](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/Algorithms/HackerRank/Kangaroo.md)
-
-<video width="400" src="https://github.com/NORIKIM/Swift-TIL/blob/master/step3Video.mov">
