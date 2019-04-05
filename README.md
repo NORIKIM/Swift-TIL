@@ -6,6 +6,7 @@
 * [AutoLayout](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/AutoLayout.md)
 * [tableView](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/tableView.md)
 * [Optional](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/optional.md)
+* [ErrorHandling](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/ErrorHandling.md)
 
 ## Algorithms
 * HackerRank
