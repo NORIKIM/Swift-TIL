@@ -17,5 +17,5 @@
 
 
 ```swift
-ddd
+let a = 0
 ```
