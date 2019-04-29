@@ -18,24 +18,31 @@ swiftStr.trimmingCharacters(in: ["#","!"])//Swift
 
 - 중간에 있는 문자 제거
 
+    ```swift
     var str = "Hello~!@@@, Zedd"
     str.components(separatedBy: ["~","!","@",","]).joined()
     //Hello Zedd
-    
     //separatedBy에는 String이 들어갈 수 없다. character만 들어가야함
+    ```
+
+    ```swift
     var str = "Hello~!@@@, Swift Zedd"
     str.components(separatedBy: ["~","!","@",",","Swift"])//error!!
+    ```
 
 - 특정 문자(character) 제거
 
+    ```swift
     var str = "Hello~!@@@, Zedd"
-    
     str.components(separatedBy: ["~","!","@",","]).joined() //Hello Zedd
+    ```
 
 - 끝에 있는 문자 제거
 
+    ```swift
     let a = "123456"
     a.dropLast(1) // "12345"
+    ```
 
 - trim 이용하기
 
@@ -99,6 +106,8 @@ print(makeNumericArrayBy(rawInput: "(10,10)-(3,3)"))
     3.  trimmingCharacters(in set: CharacterSet) → String
 
         : charactersIn에 주어진 character를 string에서 제거하여 새로운 string 리턴
+
+
 
 < 참고 사이트 >
 
