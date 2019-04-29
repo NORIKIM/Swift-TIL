@@ -10,8 +10,7 @@ import Foundation
 enum DateParseError : Error {
     case overSizeString
     case underSizeString
-/*잘못된 포맷에 의한 오류를 좀 더 자세히 설명하고자 연관 데이터를 추가할 수 있도록
-오류 타입 정의*/
+/*잘못된 포맷에 의한 오류를 좀 더 자세히 설명하고자 연관 데이터를 추가할 수 있도록 오류 타입 정의*/
     case incorrectFormat(part : String)
     case incorrectData(part : String)
 }
@@ -145,3 +144,15 @@ print("\(date)")
 ```
 
 이 키워드는 강제로 해당구문을 실행하는 것으로, 일반적으로 try를 사용해 함수를 호출하여 오류가 발생하면 실행을 멈추고 오류를 던지지만 try! 키워드를 사용하면 오류를 던지지 않고 함수를 강제실행된다. 하지만, 오류가 발생할 경우 런타임 오류로 이어진다.
+
+- 오류처리 해보기
+
+```swift
+enum ErrorMessage: String {
+    case reEntered = "입력 형식을 확인 후 다시 입력해주세요"
+    case notRect = "직사각형 혹은 정사각형이 아닙니다. 다시입력해주세요"
+    case outOfRange = "입력 가능한 숫자 범위는 0~24 입니다."
+    case notErr
+}
+```
+
