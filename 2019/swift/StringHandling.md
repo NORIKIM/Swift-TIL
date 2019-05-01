@@ -107,6 +107,20 @@ print(makeNumericArrayBy(rawInput: "(10,10)-(3,3)"))
 
         : charactersIn에 주어진 character를 string에서 제거하여 새로운 string 리턴
 
+- 문자열을 분리하여 배열에 넣기
+
+```swift
+let str = "1 2 "
+let strArr = str.split(separator: " ")
+// strArr["1","2"]
+```
+
+```swift
+let str = "1 2 "
+let strArr = str.components(separatedBy: " ")
+// strArr["1","2",""]
+```
+
 
 
 < 참고 사이트 >
