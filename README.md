@@ -8,6 +8,7 @@
 * [Optional](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/optional.md)
 * [ErrorHandling](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/ErrorHandling.md)
 * [String](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/StringHandling.md)
+* [Enum](<https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/enum.md>)
 
 ## Algorithms
 * HackerRank
