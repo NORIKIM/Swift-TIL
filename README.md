@@ -1,6 +1,20 @@
 <img width="1000" height="200" src="https://user-images.githubusercontent.com/31604976/57281680-6c1ade80-70e6-11e9-806b-08f264a24396.jpg">
 
+'안다'의 10단계 >
+
+1) 들은 적이 있다.
+2) 여러 번 들었다.
+3) 들은 내용을 대충 말할 줄 안다.
+4) 핵심내용을 정확하게 전달할 줄 안다.
+5) 말한 내용을 할 줄 안다.
+6) 말한대로 행동하고 산다.
+7) 말한 내용을 시킬 줄 안다.
+8) 가르칠 줄 안다.
+9) 체계적으로 가르칠 줄 안다.
+10) 평가·분석할 줄 안다.
+
 ## swift
+
 * [Closure](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/closure.md)
 * [Delegate](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/DelegateDesignPattern.md)
 * [AutoLayout](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/AutoLayout.md)
