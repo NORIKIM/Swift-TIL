@@ -1,5 +1,3 @@
-2019.03.25
-
 # UIViewController
 
 <img width="500" src="https://t1.daumcdn.net/cfile/tistory/2613D13C58C64DE32C">
