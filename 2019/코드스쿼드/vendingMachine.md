@@ -71,5 +71,22 @@
        }
    ```
 
-   
+5. 딕셔너리의 원소 개수 와 키,값 접근하기
 
+   음료의 이름, 가격, 개수를 가지도록 저장하는 방법에 대해 고민을 많이 함   -> 딕셔너리와 튜플을 이용하면 한번에 모든 정보를 가져올 수 있다.
+
+   순서가 없는 문제점은 key를 숫자타입으로 두고 value는 튜플로 만들어서 key의 순서대로 항상 출력되도록 만듦
+
+   value는 (음료명,가격,개수)로 하여 사용자가 음료를 구매했을 때 튜플로 접근하여 수정가능하도록 함
+
+   ```swift
+   private var currentBeverage = [Int:(String,Int,Int)]()
+   
+   mutating func inventory() {
+           for drinks in 0 ..< beverage.count {
+           self.currentBeverage.updateValue((beverage[drinks].beverageName,beverage[drinks].beveragePrice,10), forKey: drinks)
+           }
+       }
+   ```
+
+   
