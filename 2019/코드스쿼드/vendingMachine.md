@@ -89,4 +89,28 @@
        }
    ```
 
+6. 서브클래스의 메소드 사용하기
+
+   Beverage <- Coffe(  isHot( )  ) <- Kanu, TOP
+
+   : Kanu, TOP가 Coffe의 isHot 메서드를 이용해야함
+
+   생성된 인스턴스 중에 Kanu 와 TOP 커피가 뜨거운지 아닌지를 판단하는 메서드를 만들어야 함
+
+   ```swift
+   // 따뜻한 음료만 리턴하는 메소드
+       func hotBeverage() -> [String] {
+           var hot = [String]()
+           for drinks in beverage {
+               guard let coffee = drinks as? Coffee else {return [""]}
+               if coffee.isHot() == true {
+                   hot.append(drinks.beverageName)
+               }
+           }
+           return hot
+       }
+   ```
+
+   다운캐스팅을 이용하여 beverage 원소 중 Coffee를 상속받는 원소만 받아서 처리 하도록 함
+
    
