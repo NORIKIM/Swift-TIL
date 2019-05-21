@@ -118,3 +118,221 @@
    하나의 행위와 목적에 두개의 메소드로 분리 할필요 없다. 예를 들어서 자판기에서 음료 구매 행위 시 고려 사항이 두가지라면 하나는 현재 잔액으로 구매 가능한지, 음료의 재고가 있는지라고 할 때 하나의 메소드로 구현 가능하다. 어짜피 메소드를 호출 할 때는 음료구매 행위가 발생 했을 때 두가지 기능이 분리 되있다면 두가지 모두 호출 해야한다.(불필요한 코드 생성을 하지 않도록!)
 
    그 두가지 기능 중 단독적인 한가지 기능을 필요로 할때 라면 메소드 분리( = 관리자가 재고의 확인이 필요시 분리 필요)
+
+8. 클래스 테스트 코드 작성 시
+
+   setUp() : 항목이 존재해야하거나 특정 상태(객체 인스턴스 만들기, db초기화, 규칙 작성 등)가 필요한 테스트가 있을 때 사용한다.
+
+   ```swift
+   class UnitTestVendingMachine: XCTestCase {
+       var vendingMachine: VendingMachine!
+       
+       override func setUp() {
+           vendingMachine = VendingMachine()
+       }
+   }
+   ```
+
+   필요한 클래스를 변수에 초기값없이 옵셔널 !를 넣어 선언해두고, setUp함수를 오버라이드 하여 VendingMachine을 이니셜라이즈 해주어 담아 준다.
+
+-------------------
+
+### main
+
+```swift
+var vendingMachine = VendingMachine()
+vendingMachine.inventory()
+
+func main() {
+    OutputView().currentStatus(vendingMachine.balance()) // 현재 투입한 금액이 0원입니다. 다음과 같은 음료가 있습니다.
+    OutputView().beverageList(vendingMachine)
+    OutputView().menu() // 1. 금액추가 2. 음료구매
+    let input = InputView().selectMenu() // 메뉴를 선택하도록 입력 받는다.
+    
+    OutputView().printError(incorrect(input))
+
+    switch input.first {
+        case "1": vendingMachine.insert(money: input)
+        case "2":
+            guard notEnoughBalance(of: vendingMachine, input) == .notError else { return OutputView().printError(notEnoughBalance(of: vendingMachine, input)) }
+            guard outOfStock(machine: vendingMachine, input) == .notError else { return OutputView().printError(outOfStock(machine: vendingMachine, input))  }
+            vendingMachine.sell(beverage: input)
+        default: break
+    }
+}
+while true {
+    main()
+}
+```
+
+try - catch를 활용해보세요.
+
+메인을 반복하지 말고 main 내부에서 반복문을 사용하세요.
+
+
+
+### VendingMachine
+
+```swift
+struct VendingMachine {
+    private var beverage: [Beverage] {
+        return [Strawberry(strawberryContent: 3, grade: .B, brand: "빙그레", volume: 240, price: 1000, productName: "딸기우유"),
+                Chocolate(chocolateContent: 30, grade: .B, brand: "빙그레", volume: 240, price: 1000, productName: "초코우유"),
+                Cola(calorie: 200, brand: Cola.company.cocacola, volume: 400, price: 2000, productName: "코카콜라"),
+                Sider(carbonicAcidContent: 30, calorie: 300, brand: "코카콜라", volume: 300, price: 2000, productName: "스프라이트"),
+                Kanu(kindOfKanu: "아이스블랜드", ice: true, brand: "맥심", volume: 180, price: 500, productName: "카누 아이스 블랜드"),
+                TOP(flavor: "라떼", ice: false, brand: "맥심", volume: 200, price: 1400, productName: "TOP카페라떼")]
+    }
+    private var currentBalance: Int
+    private var currentBeverage = [Int:(String,Int,Int)]()
+    private var purchase = [String]()
+    
+    init(currentBalance: Int = 0) {
+        self.currentBalance = currentBalance
+    }
+    
+    // 현재 보유 중인 음료 리턴
+    func drinks() -> [Beverage] {
+        return self.beverage
+    }
+    
+    // 자판기 금액을 변경해주는 메소드
+    mutating func insert(money: String) {
+        let won = Int(money.dropFirst(2))!
+        self.currentBalance = currentBalance + won
+    }
+  ///피드백: money가 문자열인 건 어색하네요. 돈을 가장 잘 표현할 단위는 뭘까요?
+    
+    // 현재 잔액 리턴
+    func balance() -> Int {
+        return self.currentBalance
+    }
+    
+
+    /// 음료 내역
+    // beverage 배열을 이용해서 [종류개수:(음료명,가격,재고)] 형식의 재고상태를 보여주는 딕셔너리를 만듦
+    mutating func inventory() {
+        for drinks in 0 ..< beverage.count {
+            self.currentBeverage.updateValue((beverage[drinks].beverageName,beverage[drinks].beveragePrice,10), forKey: drinks)
+        }
+    }
+  ///피드백: 이 함수는 return 값이 없어도 되나요?
+  
+    // 현재 음료 현황 리턴
+    func currentBeverageStatus() -> [Int:(String,Int,Int)] {
+        return currentBeverage
+    }
+  ///피드백: 리턴 타입이 복잡한데 의미를 모르겠어요. 이런 경우는 저런 값을 포함하는 객체를 추상화해서 새로 선언하는 게 좋습니다.
+    
+    
+    /// 음료수 구매
+    // 구매한 음료 처리
+    mutating func sell(beverage: String) {
+        let selectBeverageNum = Int(beverage.dropFirst(2))! - 1
+        for inner in currentBeverage {
+            if inner.key == selectBeverageNum {
+                subtract(from: inner.key)
+                purchaseList(from: inner.key)
+                deduct(money: inner.key)
+                OutputView().printPurchase(productName: currentBeverage[inner.key]!.0, price: currentBeverage[inner.key]!.1)
+            }
+        }
+    }
+  ///피드백1: 여기 음료값에 대한 것도 문자열이 아니라 음료 메뉴에 대한 값을 다른 타입으로 개선해보세요. 입력한 값을 메뉴 중에 어떤 것과 일치시키는 메뉴 객체가 있다면 어떨까요?
+  ///피드백2: 위에 했던 피드백과 이어질 텐데 currentBeverage를 추상화한 객체가 있다면 여기 로직이 훨씬 단순해질 것 같습니다. VendingMachine 에서 직접 OutputView를 호출하면 안됩니다. 값을 가져간 곳에서 출력하도록 개선하세요.
+    
+    // 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
+    private mutating func purchaseList(from productNumber: Int) {
+        self.purchase.append(currentBeverage[productNumber]!.0)
+    }
+
+    // 재고 마이너스
+    private mutating func subtract(from inventory: Int) {
+        self.currentBeverage[inventory]!.2 -= 1
+    }
+    
+    // 잔액 마이너스
+    private mutating func deduct(money: Int) {
+        self.currentBalance = currentBalance - currentBeverage[money]!.1
+    }
+    
+    
+    /// 특정 음료 구분
+    // 유통기한이 지난 재고만 리턴하는 메소드
+    private func notValidDate() -> [String] {
+        var pastExpiration = [String]()
+        for date in beverage{
+            if date.validate() == false {
+                pastExpiration.append(date.beverageName)
+            }
+        }
+        return pastExpiration
+    }
+
+    // 따뜻한 음료만 리턴하는 메소드
+    private func hotBeverage() -> [String] {
+        var hot = [String]()
+        for drinks in beverage {
+            guard let coffee = drinks as? Coffee else {return [""]}
+            if coffee.isHot() == true {
+                hot.append(drinks.beverageName)
+            }
+        }
+        return hot
+    }
+  ///피드백: 재고나 음료를 리턴할 때는 `[String]` 대신 `[Beverage]` 형식으로 음료수 객체를 직접 다루는 게 좋습니다.
+}
+```
+
+
+
+### Error
+
+```swift
+enum Error: String {
+    case incorrect = "❌ 메뉴를 확인해주세요"
+    case notEnoughBalance = "❌ 잔액이 부족합니다."
+    case outOfStock = "❌ 재고가 부족합니다."
+    case notError = ""
+    
+    func message() -> String {
+        return self.rawValue
+    }
+}
+
+// 올바른 메뉴 선택 확인
+func incorrect(_ input: String) -> Error {
+    let value = input.first
+    guard value == "1" || value == "2" else { return Error.incorrect }
+    return .notError
+}
+
+// 현재의 잔액으로 선택한 음료의 구매 가능 여부 확인
+func notEnoughBalance(of machine: VendingMachine, _ input: String) -> Error {
+    let balance = machine.balance()
+    let status = machine.currentBeverageStatus()
+    let selectBeverage = Int(input.dropFirst(2))! - 1
+    for drinks in status {
+        if drinks.key == selectBeverage {
+            guard balance >= status[drinks.key]!.1 else { return .notEnoughBalance }
+        }
+    }
+    return .notError
+}
+
+// 선택한 음료의 구매 가능한 재고의 존재 여부
+func outOfStock(machine: VendingMachine, _ input: String) -> Error {
+    let status = machine.currentBeverageStatus()
+    let selectBeverage = Int(input.dropFirst(2))! - 1
+    for drinks in status {
+        if drinks.key == selectBeverage {
+            guard status[drinks.key]!.2 != 0 else { return .outOfStock }
+        }
+    }
+    return .notError
+}
+///피드백: 보통 Error 자체를 리턴 타입으로 사용하지는 않습니다 최근에 추가된 Result를 사용하기도 합니다만 이 함수가 성공인지 실패인지 구분할 수 있는 상태가 몇 가지인지 생각해서 리턴 타입을 결정해야 합니다. 단지 하나의 상태라면 Bool 만 리턴하고, 그외 나머지 예외적인 경우를 throws 하는 게 좋습니다. 여기 있는 두 함수는 Error 대신 리턴 타입을 바꿔보세요.
+```
+
+
+
