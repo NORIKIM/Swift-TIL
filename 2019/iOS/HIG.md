@@ -46,7 +46,7 @@
 
 앱을 계속 사용하거나 중요한 데이터를 저장하기 위해 작업을 완료하거나 포기해야하는 불가피한 경우에만 사용해야 합니다. 모달 작업이 깊을 수록 사용자가 위치와 목적을 잃을 수 있으니 단순하고 명확해야 합니다. 작업을 완료하기 전까지 다른 일을 하지 못하도록 만든다.  일반적으로 작업을 완료 하기 위한 종료, 완료 및 취소 단추가 포함된다. 
 
-<center><img width="300" src="https://user-images.githubusercontent.com/31604976/58330963-03b45700-7e73-11e9-8db8-bda241ace22c.png"><img width="300" src="https://user-images.githubusercontent.com/31604976/58330999-1f1f6200-7e73-11e9-976e-5f2b2a5f2120.png">
+<img width="300" src="https://user-images.githubusercontent.com/31604976/58330963-03b45700-7e73-11e9-8db8-bda241ace22c.png"><img width="300" src="https://user-images.githubusercontent.com/31604976/58330999-1f1f6200-7e73-11e9-976e-5f2b2a5f2120.png">
 
 - 모달 뷰 스타일
 
@@ -94,7 +94,7 @@
 
 자주 변경이 필요한 항목은 메인화면에 놓고 중요도가 떨어지는 항목들은 사용자가 설정화면에서 조정하도록 한다.
 
-<center><img width="300" src="https://user-images.githubusercontent.com/31604976/58344773-9532c180-7e91-11e9-8892-b215a9ac3d2d.png"><img width="300" src="https://user-images.githubusercontent.com/31604976/58344862-d2974f00-7e91-11e9-8656-200528542d3e.png">
+<img width="300" src="https://user-images.githubusercontent.com/31604976/58344773-9532c180-7e91-11e9-8892-b215a9ac3d2d.png"><img width="300" src="https://user-images.githubusercontent.com/31604976/58344862-d2974f00-7e91-11e9-8656-200528542d3e.png">
 
 
 
