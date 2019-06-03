@@ -13,7 +13,11 @@
 9) 체계적으로 가르칠 줄 안다.
 10) 평가·분석할 줄 안다.
 
-- [SOLID](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/SOLID.md)
+* [SOLID](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/SOLID.md)
+
+## iOS
+* [HIG](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/iOS/HIG.md)
+
 
 ## swift
 
