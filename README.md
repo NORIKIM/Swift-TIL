@@ -39,5 +39,5 @@
   - [Apple and Orange](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/Algorithms/HackerRank/Apple%20and%20Orange.md)
   - [Kangaroo](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/Algorithms/HackerRank/Kangaroo.md)
 * BaekJoon
-- [초콜릿 자르기](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/Algorithms/BaekJoon/2163.%EC%B4%88%EC%BD%9C%EB%A6%BF%20%EC%9E%90%EB%A5%B4%EA%B8%B0.md)
+  - [초콜릿 자르기](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/Algorithms/BaekJoon/2163.%EC%B4%88%EC%BD%9C%EB%A6%BF%20%EC%9E%90%EB%A5%B4%EA%B8%B0.md)
 
