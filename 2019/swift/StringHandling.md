@@ -106,8 +106,10 @@ print(makeNumericArrayBy(rawInput: "(10,10)-(3,3)"))
     3.  trimmingCharacters(in set: CharacterSet) → String
 
         : charactersIn에 주어진 character를 string에서 제거하여 새로운 string 리턴
+        
+        
 
-- 문자열을 분리하여 배열에 넣기
+- split과 components 차이
 
 ```swift
 let str = "1 2 "
