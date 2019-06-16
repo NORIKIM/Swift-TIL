@@ -1,5 +1,7 @@
 # SOLID
 
+https://o-o-wl.tistory.com/26
+
 ### S  (Single Responsibility Principle) 단일 책임 원칙
 
 클래스는 응집도 있는 하나의 책임만 가져야 한다 = 클래스를 수정할 이유는 오직 응집도여야한다
