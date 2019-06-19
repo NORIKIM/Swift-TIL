@@ -6,7 +6,7 @@
 
 ## iOS
 * [HIG](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/iOS/HIG.md)
-
+* [UIViewController Lifecycle](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/uiviewcontroller%20lifecycle.md)
 
 ## swift
 
@@ -19,7 +19,7 @@
 * [String](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/StringHandling.md)
 * [Enum](<https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/enum.md>)
 * [struct&class](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/Struct-Class.md)
-* [UIViewController Lifecycle](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/uiviewcontroller%20lifecycle.md)
+* [UnitTest](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/UnitTest.md)
 
 ## Algorithms
 * HackerRank
