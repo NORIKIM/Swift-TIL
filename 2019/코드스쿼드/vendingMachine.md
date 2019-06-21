@@ -137,6 +137,8 @@
 
 -------------------
 
+## 피드백
+
 ### main
 
 ```swift
@@ -159,15 +161,13 @@ func main() {
             vendingMachine.sell(beverage: input)
         default: break
     }
+  ///피드백: try - catch를 활용해보세요.
 }
 while true {
     main()
 }
+///피드백: 메인을 반복하지 말고 main 내부에서 반복문을 사용하세요.
 ```
-
-try - catch를 활용해보세요.
-
-메인을 반복하지 말고 main 내부에서 반복문을 사용하세요.
 
 
 
@@ -332,6 +332,283 @@ func outOfStock(machine: VendingMachine, _ input: String) -> Error {
     return .notError
 }
 ///피드백: 보통 Error 자체를 리턴 타입으로 사용하지는 않습니다 최근에 추가된 Result를 사용하기도 합니다만 이 함수가 성공인지 실패인지 구분할 수 있는 상태가 몇 가지인지 생각해서 리턴 타입을 결정해야 합니다. 단지 하나의 상태라면 Bool 만 리턴하고, 그외 나머지 예외적인 경우를 throws 하는 게 좋습니다. 여기 있는 두 함수는 Error 대신 리턴 타입을 바꿔보세요.
+```
+
+-----------------------
+
+## 피드백 수정
+
+1. 배열의 원소를 검색할때 배열[0] vs 배열.first의 차이?
+
+   ```swift
+   func incorrect(_ input: String) throws -> userChoice {
+       let value = input.split(separator: " ").map { String($0) }
+       guard let choice = value.first, //optinal("1")
+     let menu = Inventory.Menu(rawValue: choice) else {throw InputError.incorrect }
+   }
+   ```
+
+---------------------
+
+## main
+
+```swift
+import Foundation
+
+var vendingMachine = VendingMachine()
+vendingMachine.inventory()
+
+struct main {
+    static func operate() throws {
+        while true {
+            let userInput = try input()
+            try handleOrder(choice: userInput)
+        }
+    }
+    
+    static func input() throws -> userChoice {
+        OutputView.currentStatus(vendingMachine.balance()) // 현재 투입한 금액이 0원입니다. 다음과 같은 음료가 있습니다.
+        OutputView().beverageList(vendingMachine)
+        OutputView.menu() // 1. 금액추가 2. 음료구매
+        let select = InputView().selectMenu() // 메뉴를 선택하도록 입력 받는다.
+        return try incorrect(select)
+    }
+    
+    static func handleOrder(choice: userChoice) throws {
+        let menu = choice.menu
+        let value = choice.value - 1
+        let product = vendingMachine.currentBeverageStatus()
+        
+        switch menu {
+            case .insertMoney :
+                vendingMachine.insert(money: value + 1)
+            case .buyBeverage :
+                try checkAvailability(of: vendingMachine, value)
+                vendingMachine.sell(beverageNumber: value)
+                OutputView.printPurchase(productName: product[value].beverageName, price: product[value].beveragaPrice)
+        }
+    }
+}
+
+func work()  {
+    while true {
+        do {
+            try main.operate()
+        } catch let error as InputError{
+            OutputView().printError(error)
+        }
+        catch {
+            OutputView().printError(InputError.unexpected)
+        }
+    }
+}
+ work()
+```
+
+
+
+## vendingMahcine
+
+```swift
+import Foundation
+
+struct VendingMachine {
+    private var beverage: [Beverage] {
+        return [Strawberry(strawberryContent: 3, grade: .B, brand: "빙그레", volume: 240, price: 1000, productName: "딸기우유"),
+                Chocolate(chocolateContent: 30, grade: .B, brand: "빙그레", volume: 240, price: 1000, productName: "초코우유"),
+                Cola(calorie: 200, brand: Cola.company.cocacola, volume: 400, price: 2000, productName: "코카콜라"),
+                Sider(carbonicAcidContent: 30, calorie: 300, brand: "코카콜라", volume: 300, price: 2000, productName: "스프라이트"),
+                Kanu(kindOfKanu: "아이스블랜드", ice: true, brand: "맥심", volume: 180, price: 500, productName: "카누 아이스 블랜드"),
+                TOP(flavor: "라떼", ice: false, brand: "맥심", volume: 200, price: 1400, productName: "TOP카페라떼")]
+    }
+    private var currentBalance: Int
+    private var currentBeverage = [Inventory]()
+    private var purchase = [String]()
+    
+    init(currentBalance: Int = 0) {
+        self.currentBalance = currentBalance
+    }
+    
+    // 현재 보유 중인 음료 리턴
+    func drinks() -> [Beverage] {
+        return self.beverage
+    }
+    
+    // 자판기 금액을 변경해주는 메소드
+    mutating func insert(money: Int) {
+        self.currentBalance = currentBalance + money
+    }
+    
+    // 현재 잔액 리턴
+    func balance() -> Int {
+        return self.currentBalance
+    }
+    
+
+    /// 음료 내역
+    mutating func inventory() {
+        for i in beverage {
+            self.currentBeverage.append(Inventory(beverageName: i.beverageName, beveragaPrice: i.beveragePrice, beverageCount: 10))
+        }
+    }
+    // 현재 음료 현황 리턴
+    func currentBeverageStatus() -> [Inventory] {
+        return currentBeverage
+    }
+    
+    
+    /// 음료수 구매
+    // 구매한 음료 처리
+    mutating func sell(beverageNumber: Int) {
+        for inner in 0 ..< currentBeverage.count {
+            if beverageNumber == inner {
+                subtract(from: inner)
+                purchaseList(from: inner)
+                deduct(money: inner)
+            }
+        }
+    }
+    
+    // 시작이후 구매 상품 이력을 배열로 리턴하는 메소드
+    private mutating func purchaseList(from productNumber: Int) {
+        self.purchase.append(currentBeverage[productNumber].beverageName)
+    }
+
+    // 재고 마이너스
+    private mutating func subtract(from inventory: Int) {
+        self.currentBeverage[inventory].beverageCount -= 1
+    }
+    
+    // 잔액 마이너스
+    private mutating func deduct(money: Int) {
+        self.currentBalance = currentBalance - currentBeverage[money].beveragaPrice
+    }
+    
+    
+    /// 특정 음료 구분
+    // 유통기한이 지난 재고만 리턴하는 메소드
+    private func notValidDate() -> [Beverage] {
+        return beverage.filter{ $0.validate() == false }
+    }
+
+    // 따뜻한 음료만 리턴하는 메소드
+    private func hotBeverage() -> [Beverage] {
+        let coffee = beverage.filter{
+            let drink = $0 as? Coffee
+                if drink?.isHot() == true { return true }
+            return false
+        }
+        return coffee
+    }
+}
+```
+
+
+
+## Inventory
+
+```swift
+import Foundation
+
+struct Inventory {
+    enum Menu: String {
+        case insertMoney = "1"
+        case buyBeverage = "2"
+    }
+    
+    var beverageName: String
+    var beveragaPrice: Int
+    var beverageCount: Int
+    
+    init(beverageName: String, beveragaPrice: Int, beverageCount: Int) {
+        self.beverageName = beverageName
+        self.beveragaPrice = beveragaPrice
+        self.beverageCount = beverageCount
+    }
+}
+
+```
+
+
+
+## Error
+
+```swift
+enum InputError: String, Error {
+    case incorrect = "❌ 메뉴를 확인해주세요"
+    case notEnoughBalance = "❌ 잔액이 부족합니다."
+    case outOfStock = "❌ 재고가 부족합니다."
+    case unexpected = "❗️예상치 못한 에러가 발생했습니다."
+    
+    func message() -> String {
+        return self.rawValue
+    }
+}
+
+typealias userChoice = (menu: Inventory.Menu, value: Int)
+
+// 첫 입력 확인
+func incorrect(_ input: String) throws -> userChoice {
+    let UserInput = input.split(separator: " ").map { String($0) }
+    guard let menuNum = UserInput.first, let menu = Inventory.Menu(rawValue: menuNum) else { throw InputError.incorrect }
+    guard let inputNum = UserInput.last, let value = Int(inputNum) else { throw InputError.incorrect }
+    if Int(menuNum)! > 2 { throw InputError.incorrect }
+    return (menu, value)
+}
+
+// 두 번째 입력 확인
+func checkAvailability(of machine: VendingMachine, _ select: Int) throws {
+    let balance = machine.balance()
+    let status = machine.currentBeverageStatus()
+    
+    // 올바른 음료를 선택했는지 확인
+    if select >= status.count { throw InputError.incorrect }
+    // 현재의 잔액으로 선택한 음료의 구매 가능 여부 확인
+    if status[select].beveragaPrice > balance { throw InputError.notEnoughBalance }
+    // 선택한 음료의 구매 가능한 재고의 존재 여부
+    if status[select].beverageCount == 0 { throw InputError.outOfStock }
+}
+
+```
+
+
+
+## OutputView
+
+```swift
+import Foundation
+
+/// 출력
+struct OutputView {
+    static func currentStatus(_ money: Int) {
+        print("현재 투입한 금액이 \(money)원입니다. 다음과 같은 음료가 있습니다.")
+    }
+    
+    static func menu() {
+        print("""
+             1. 금액추가
+             2. 음료구매
+             """)
+    }
+    
+    // 현재 보유 중인 음료수 내역
+    func beverageList(_ beverage:VendingMachine) {
+        let drinks = beverage.currentBeverageStatus()
+        for inner in 0 ..< drinks.count {
+            print("\(inner + 1)) \(drinks[inner].beverageName) \(drinks[inner].beveragaPrice)원 \(drinks[inner].beverageCount)개")
+        }
+    }
+    
+    // 음료 구매 후 출력문
+    static func printPurchase(productName: String, price: Int) {
+        print("\(productName)를 구매하셨습니다. \(price)원을 차감합니다.\n")
+    }
+    
+    // 에러 출력
+    func printError(_ error: InputError) {
+            print(error.message())
+    }
+}
 ```
 
 
