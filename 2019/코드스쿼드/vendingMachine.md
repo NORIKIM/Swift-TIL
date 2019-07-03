@@ -503,7 +503,14 @@ struct VendingMachine {
 }
 ```
 
+**private var currentBeverage = [Inventory]()** - Inventory는 음료 객체 인스턴스를 관리하는 객체가 되어야 합니다.
 
+**private func hotBeverage()** - if 구문 내부에 let 바인딩과 isHot() 호출을 모두 판단해도 되지 않았을까요?
+혹은 guard let 과 isHot() 호출도 표현할 수 있을 것 같습니다.
+
+이런 바인딩과 비교는 자주 사용하게 될텐데 읽기쉽고, 안전하게 처리하는 것을 늘 먼저 고민하세요.
+물론 지금도 잘 동작합니다만, 들여쓰기도 그렇고 어색한 부분이 있습니다.
+`return true` 같은 표현을 직접 쓰기 보다 `return drink?.isHot()` 으로 해도 됩니다.
 
 ## Inventory
 
@@ -528,6 +535,14 @@ struct Inventory {
 }
 
 ```
+
+**enum Menu** - Menu는 Inventory와 관련 있기 보다는 자판기 자체와 관련 있는게 아닐까요?
+돈을 넣는 메뉴가 Inventory 내부에 있는게 어색합니다.
+
+**struct Inventory** - 객체 인스턴스를 만들어서 Inventory를 구성하는 게 좋습니다.
+얼마짜리 딸기 우유가 몇 개 있다는 것을 정보로 구성하는 게 아니라,
+딸기우유 객체 인스턴스를 배열에 넣어서 몇 개가 있는지 확인하는거죠.
+물론 생성할 때는 몇 개를 만들지 받아서 한꺼번에 만들수도 있겠죠.
 
 
 
@@ -611,5 +626,6 @@ struct OutputView {
 }
 ```
 
-
+`OutputView().beverageList()` 만 왜 OutputView 인스턴스를 생성하고 있나요?
+일관성 있게 사용할 수 있도록 하는게 좋습니다. 이렇게 쓰면 헷갈릴 수 있습니다.
 
