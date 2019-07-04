@@ -1,4 +1,62 @@
-코드의 블럭: 이름이 붙어있는 함수
+코드의 블럭: 이름이 붙어있는 함수(이름이 있는 코드의 블럭)
+
+모든 함수는 클로저이다 
+
+단 크로저는 함수일 수있고 아닐 수 있다.
+
+함수: 이름이 있는 클로저
+
+클로저: 이름이 없는 함수
+
+- 클로저 캡처
+
+  : 
+
+```swift
+var a = 10
+var v = {[a] (n:Int) in print(a+n)}
+a = 100
+v(5) //15
+print(a) //여전히 10
+```
+
+- 후행클로저
+
+```swift
+let reversed: [string] = names.sorted() { (left:string, rigth:string) -> bool in
+return left > rigth
+}
+```
+
+
+
+## 고차함수
+
+: 함수의 인자로 다른 함수를 받는 함수
+
+- map
+
+  컨테이너에 있는 요소들을 새로운 형태로 만들고 싶을 때 사용
+
+  ```swift
+  var num = [1,2,3]
+  let strNum = num.map{(number: Int) -> String in return "\(number)"}
+  ```
+
+- reduce
+
+  컨테이너 내부의 콘텐츠를 하나로 통합
+
+  초깃값: 첫번째 파라미터
+
+  값을 어떻게 사용할거냐: 두번째 파라미터
+
+  ```swift
+  var num = [1,2,3]
+  let sum = num.reduce(3) { $0 + $1 } // 9
+  ```
+
+  
 
 일급객체
 
