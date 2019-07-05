@@ -5,6 +5,20 @@
 (오류에 대한 객체를 반환하는 것이 아니라 실행 흐름 중간에 오류 객체를 만들어 다른 실행 흐름으로 옮겨가는 것이기 때문)
 
 ```swift
+do {
+  try <오류를 던질 수 있는 함수>
+} catch <오류 타입1> {
+  // 오류 타입1에 대한 대응
+} catch <오류 타입2> {
+  // 오류 타입2에 대한 대응
+} catch <오류 타입3> {
+  // 오류 타입3에 대한 대응
+} ...
+```
+
+
+
+```swift
 import Foundation
 
 enum DateParseError : Error {
@@ -148,11 +162,125 @@ print("\(date)")
 - 오류처리 해보기
 
 ```swift
-enum ErrorMessage: String {
-    case reEntered = "입력 형식을 확인 후 다시 입력해주세요"
-    case notRect = "직사각형 혹은 정사각형이 아닙니다. 다시입력해주세요"
-    case outOfRange = "입력 가능한 숫자 범위는 0~24 입니다."
-    case notErr
+enum vending: Error {
+    case invalidInput
+    case issufficientFunds(moneyNeeded: Int)
+    case outofstock
 }
+
+class vendingMachine {
+    var price: Int = 100
+    var count: Int = 5
+    var deposited: Int = 0
+    
+    func receiveMoney(_ money: Int) throws {
+        guard money > 0 else {
+            throw vending.invalidInput
+        }
+        
+        self.deposited += money
+        print("\(money)원 받음")
+    }
+    
+    
+    func vend(numberOfItmes numberOfItemsToVend: Int) throws -> String {
+        guard numberOfItemsToVend * price <= deposited else {
+            let moneyNeeded: Int
+            moneyNeeded = numberOfItemsToVend * price - deposited
+            throw vending.issufficientFunds(moneyNeeded: moneyNeeded)
+        }
+        
+        guard count >= numberOfItemsToVend else {
+            throw vending.outofstock
+        }
+        
+        let totalPrice = numberOfItemsToVend * price
+        
+        self.deposited -= totalPrice
+        self.count -= numberOfItemsToVend
+        
+        return "\(numberOfItemsToVend)개 제공함"
+    }
+}
+var machine = vendingMachine()
+var result: String?
+
+do {
+    try machine.receiveMoney(10)
+} catch vending.invalidInput {
+    print("입력오류")
+} catch vending.issufficientFunds(let moneyNeeded) {
+    print("\(moneyNeeded)원이 부족")
+}
+
+
+//초기화 사용자화 하기
+struct People {
+    var height: Double
+    var weight: Double?
+    var footSize: Int
+    init(height: Double, footSize: Int) {
+        self.height = height
+        self.footSize = footSize
+    }
+}
+var stark = People(height: 180.0, footSize: 270)
+
+print(stark)
+// People(height: 180.0, weight: nil, footSize: 270)stark.weight = 82.9print(stark)
+// People(height: 180.0, weight: Optional(82.9), footSize: 270)
+```
+
+# 실제 사용해보기
+
+```swift
+var vendingMachine = VendingMachine()
+vendingMachine.inventory()
+
+struct main {
+    static func operate() throws {
+        while true {
+            let userInput = try input()
+            try handleOrder(choice: userInput)
+        }
+    }
+    
+    static func input() throws -> userChoice {
+        OutputView.currentStatus(vendingMachine.balance()) // 현재 투입한 금액이 0원입니다. 다음과 같은 음료가 있습니다.
+        OutputView.beverageList(vendingMachine)
+        OutputView.menu() // 1. 금액추가 2. 음료구매
+        let select = InputView().selectMenu() // 메뉴를 선택하도록 입력 받는다.
+        return try incorrect(select)
+    }
+    
+    static func handleOrder(choice: userChoice) throws {
+        let menu = choice.menu
+        let value = choice.value - 1
+        let product = vendingMachine.currentBeverageStatus()
+        
+        switch menu {
+            case .insertMoney :
+                vendingMachine.insert(money: value + 1)
+            case .buyBeverage :
+                try checkAvailability(of: vendingMachine, value)
+                vendingMachine.sell(beverageNumber: value)
+                OutputView.printPurchase(productName: product[value].beverageName, price: product[value].beveragaPrice)
+        }
+    }
+}
+
+func work()  {
+    while true {
+        do {
+            try main.operate()
+        } catch let error as InputError{
+            OutputView.printError(error)
+        }
+        catch {
+            OutputView.printError(InputError.unexpected)
+        }
+    }
+}
+ work()
 ```
 
