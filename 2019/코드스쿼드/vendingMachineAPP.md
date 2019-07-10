@@ -4,6 +4,14 @@
 
 viewController 클래스에 음료 객체를 생성하여 내역을 콘솔에 출력
 
+1. 불필요한 파일을 삭제해라
+
+   처음에 기존의 VendingMachine 코드의 파일을 그대로 끌어다가 VendingMachineApp 프로젝트에 끌어와서 복붙 했더니 파일을 복사해서 복사본을 사용하지 않고 참조해버렸다.
+
+   -> 불필요한 파일 자체는 아예 삭제해버리고 필요한 부분만 VendingMachine에서 swift파일을 복사하여 가져온다
+
+   복사하여 붙여넣을 때 'choose options for adding these filses'창에서 'Copy items if needed'를 체크하고 'Added folders'에서 'Create groups'를 선택한다(Create folder references는 외부 사람이 파일을 추가하는 경우에 선택한다.)
+
 **beverage.coffee**
 
 ```swift
