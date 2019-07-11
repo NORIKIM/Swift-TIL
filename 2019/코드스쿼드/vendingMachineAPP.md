@@ -174,3 +174,13 @@ class ViewController: UIViewController {
 }
 ```
 
+# vendingMachineAPP step2. MVC 패턴
+
+<문제해결>
+
+1. 오토레이아웃을 이용하여 음료 이미지뷰들을 예쁘게 정렬
+
+   이미지들을 `stack view`에 넣고 stack view에 Add new constraints를 추가 해주면 자동으로 이미지들의 사이즈와 위치가 고정됨
+
+   - 양 옆, 위 의 사이즈
+   - 높이
