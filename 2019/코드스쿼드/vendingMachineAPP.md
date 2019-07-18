@@ -110,6 +110,8 @@ VendingMachine 객체 인스턴스를 ViewController 속성으로 inven 처럼 �
 
    이런 방식을 써도 되는건지는 모르겠지만 일단 PR...
 
+-------------------------------
+
 ## 피드백 반영
 
 **beverage.coffee**
@@ -184,3 +186,46 @@ class ViewController: UIViewController {
 
    - 양 옆, 위 의 사이즈
    - 높이
+
+2. 추가 버튼을 누르면 어떤 음료의 재고가 추가되는지 어떻게 알지?
+
+   2-1. 이미지들을 collectionView 사용하여 로드시키기
+
+   ```swift
+   import UIKit
+   
+   class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+       
+       private var beverageImg = ["딸기우유.jpg","스프라이트.jpg","초코우유.jpg","카누아이스블랜드.jpg","콜라.jpeg","TOP라떼.jpeg"]
+       
+       override func viewDidLoad() {
+           super.viewDidLoad()
+       }
+   
+       func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+           return beverageImg.count
+       }
+       
+       func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BeverageCell", for: indexPath) as! BeverageCellCV
+           cell.img.image = UIImage(named: beverageImg[indexPath.row])
+           return cell
+       }
+   }
+   
+   class BeverageCellCV: UICollectionViewCell {
+       @IBOutlet weak var img: UIImageView!
+   }
+   ```
+
+   <img width="897" src="https://user-images.githubusercontent.com/31604976/61434147-25602500-a970-11e9-8631-ce6113ede5d1.png">
+
+   참고 :
+
+   https://medium.com/yay-its-erica/creating-a-collection-view-swift-3-77da2898bb7c
+
+   https://abc1211.tistory.com/461
+
+   https://iw90.tistory.com/241
+
+   https://marlboroyw.tistory.com/529
