@@ -220,6 +220,8 @@ class ViewController: UIViewController {
 
    <img width="897" src="https://user-images.githubusercontent.com/31604976/61434147-25602500-a970-11e9-8631-ce6113ede5d1.png">
 
+   <img src="https://user-images.githubusercontent.com/31604976/61434485-1168f300-a971-11e9-9639-c141111ee6af.png">
+
    참고 :
 
    https://medium.com/yay-its-erica/creating-a-collection-view-swift-3-77da2898bb7c
