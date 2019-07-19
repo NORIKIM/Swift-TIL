@@ -239,7 +239,9 @@ class ViewController: UIViewController {
        
        func setImgCornerRound() {
            img.layer.cornerRadius = 10
-           img.layer.masksToBounds = true
+           //img.layer.masksToBounds = true
+         img.layer.borderColor = UIColor.black.cgColor
+           img.layer.borderWidth = 1.0
        }
    ```
 
@@ -250,3 +252,12 @@ class ViewController: UIViewController {
    true로 설정하면 콘텐츠에 영향이 가게 되고 false로 하면 영향이 안감.
 
    참고 : https://zeddios.tistory.com/37
+
+   
+
+   **masksToBounds는 사용하지 않고 이미지뷰의 테두리색을 넣어봄**
+
+   borderColor를 사용하면 되는데 이것을 사용하기 위해선 borderWidth를 꼭 같이 사용해줘야 한다.
+
+   <img src="https://user-images.githubusercontent.com/31604976/61512647-91f12780-aa35-11e9-842c-823da12508a7.png">
+
