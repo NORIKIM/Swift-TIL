@@ -231,3 +231,22 @@ class ViewController: UIViewController {
    https://iw90.tistory.com/241
 
    https://marlboroyw.tistory.com/529
+
+3. 이미지뷰 테두리 둥글게 하기
+
+   ```swift
+    @IBOutlet weak var img: UIImageView! { didSet { setImgCornerRound() } }
+       
+       func setImgCornerRound() {
+           img.layer.cornerRadius = 10
+           img.layer.masksToBounds = true
+       }
+   ```
+
+   **masksToBounds의 역할**
+
+   masksToBounds이 없어도 이미지뷰의 테두리는 둥글게 만들어지는데 이 메소드를 사용하는 이유! 뷰위의 콘텐츠가 영향을 받게 할지 안할지에 대한 옵션 같은 것.
+
+   true로 설정하면 콘텐츠에 영향이 가게 되고 false로 하면 영향이 안감.
+
+   참고 : https://zeddios.tistory.com/37
