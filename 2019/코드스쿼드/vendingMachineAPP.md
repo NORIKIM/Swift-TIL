@@ -178,6 +178,10 @@ class ViewController: UIViewController {
 
 # vendingMachineAPP step2. MVC 패턴
 
+<요구사항>
+
+아이패드에 자판기 화면 구현하여 동작시키기
+
 <문제해결>
 
 1. 오토레이아웃을 이용하여 음료 이미지뷰들을 예쁘게 정렬
