@@ -2,9 +2,9 @@
 
 ## 프로그래밍
 
-- [Monad]([https://github.com/NORIKIM/Swift-TIL/blob/master/2019/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Monad.md](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/프로그래밍/Monad.md))
-- [SOLID]([https://github.com/NORIKIM/Swift-TIL/blob/master/2019/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/SOLID.md](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/프로그래밍/SOLID.md))
-- [Network]([https://github.com/NORIKIM/Swift-TIL/blob/master/2019/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.md](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/프로그래밍/네트워크.md))
+- [Monad]([https://github.com/NORIKIM/Swift-TIL/blob/master/2019/프로그래밍/Monad.md)
+- [SOLID]([https://github.com/NORIKIM/Swift-TIL/blob/master/2019/프로그래밍/SOLID.md)
+- [Network]([https://github.com/NORIKIM/Swift-TIL/blob/master/2019/프로그래밍/네트워크.md)
 
 ## iOS
 * [HIG](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/iOS/HIG.md)
