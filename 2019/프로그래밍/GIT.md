@@ -109,8 +109,15 @@ NORIKIM에서  fetch - rebase upstream -  push
 
 **브랜치 생성**
 
-```
+```swift
 git branch 브랜치명
+// 브랜치명은 띄어쓰기 X
+```
+
+**브랜치 삭제**
+
+```swift
+git branch -d 브랜치명
 ```
 
 
