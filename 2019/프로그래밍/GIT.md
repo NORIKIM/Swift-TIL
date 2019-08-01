@@ -120,6 +120,8 @@ track 의 추적에서 제외 시키기
 
 .gitignore 파일을 푸시하면 완료
 
+참고 : [http://kyejusung.com/2015/05/userinterfacestate-xcuserstate-%ED%8C%8C%EC%9D%BC-git-tracking%EC%97%90%EC%84%9C-%EC%A0%9C%EC%99%B8%EC%8B%9C%ED%82%A4%EA%B8%B0/](http://kyejusung.com/2015/05/userinterfacestate-xcuserstate-파일-git-tracking에서-제외시키기/)
+
 ## 명령어
 
 **브랜치 생성**
