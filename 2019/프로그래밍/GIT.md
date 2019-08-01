@@ -103,7 +103,22 @@ git push
 
 NORIKIM에서  fetch - rebase upstream -  push
 
+## 파일의 상태
 
+- Untracked : add되지 않은 상태
+- Unmodified : add는 되었지만, 수정이 되지 않은 상태
+- Modified : 파일이 수정되었으나 commit 준비가 되지 않은 상태
+- Staged : 파일 수정이 완료되어 commit 하면 되는 상태
+
+## gitignore
+
+track 의 추적에서 제외 시키기
+
+소스트리에서 해당 브랜치의 우측 상단의 설정-고급-편집
+
+제외 하고 싶은 파일을 적어주면 추척에서 제외 되고
+
+.gitignore 파일을 푸시하면 완료
 
 ## 명령어
 
@@ -120,5 +135,9 @@ git branch 브랜치명
 git branch -d 브랜치명
 ```
 
+**파일 이동**
 
+작업내용이 잘못된 브랜치에서 진행 된 경우...
+
+Rebase???? 
 
