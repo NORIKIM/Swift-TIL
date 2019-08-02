@@ -122,6 +122,19 @@ track 의 추적에서 제외 시키기
 
 참고 : [http://kyejusung.com/2015/05/userinterfacestate-xcuserstate-%ED%8C%8C%EC%9D%BC-git-tracking%EC%97%90%EC%84%9C-%EC%A0%9C%EC%99%B8%EC%8B%9C%ED%82%A4%EA%B8%B0/](http://kyejusung.com/2015/05/userinterfacestate-xcuserstate-파일-git-tracking에서-제외시키기/)
 
+
+
+**gitignore을 해도 추적되는 경우**
+
+```swift
+git rm --cached 추적되는 파일명
+git commit -m "Removed file that shouldn't be tracked"
+```
+
+출처 : http://howhansume2.blogspot.com/2016/03/cant-ignore-userinterfacestatexcusersta.html
+
+
+
 ## 명령어
 
 **브랜치 생성**
