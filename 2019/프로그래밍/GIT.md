@@ -172,3 +172,15 @@ git statsh
 
 참고 : https://gmlwjd9405.github.io/2018/05/18/git-stash.html
 
+**현재 브랜치로 push**
+
+```swift
+git push origin 현재 브랜치명
+```
+
+
+
+## 문제상황 및 해결
+
+master가 아닌 다른 브랜치에서 작업을 완료하고 `git push origin 브랜치명` 후 깃헙에서 pull request를 하라구 알림이 뜬다 -> 머지 제한 걸려있는 마스터나 다른 브랜치에 머지를 하고 싶으면 풀리퀘를 날려! 라는 뜻 비정상인 상황이 아니다 -> 풀리퀘와는 별개로 브랜치 관리만 잘하면 꼬이지 않음
+
