@@ -3,12 +3,21 @@
 ## 프로그래밍
 
 - [Monad](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/프로그래밍/Monad.md)
-- [SOLID](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/프로그래밍/SOLID.md)
 - [Network](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/프로그래밍/네트워크.md)
+- [SOLID](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/프로그래밍/SOLID.md)
 
 ## iOS
+
 * [HIG](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/iOS/HIG.md)
 * [UIViewController Lifecycle](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/swift/uiviewcontroller%20lifecycle.md)
+* [App Delegate](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/iOS/AppDelegate.md)
+* [Attribute Instpector](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/iOS/Attributes inspector.md)
+* [Auto Layout](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/iOS/AutoLayout.md)
+* [CollectionView](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/iOS/CollectionView.md)
+* [Delegation Design Pattern](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/iOS/DelegateDesignPattern.md)
+* [LLDB](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/iOS/LLDB.md)
+* [TableView](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/iOS/tableView.md)
+* [Animation](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/iOS/애니메이션.md)
 
 ## swift
 
@@ -31,4 +40,7 @@
   - [Kangaroo](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/Algorithms/HackerRank/Kangaroo.md)
 * BaekJoon
   - [초콜릿 자르기](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/Algorithms/BaekJoon/2163.%EC%B4%88%EC%BD%9C%EB%A6%BF%20%EC%9E%90%EB%A5%B4%EA%B8%B0.md)
+* CodeSignal
+  - [Intro - checkPalindrome](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/Algorithms/CodeSignal/Intro-checkPalindrome.md)
+  - [Intro - adjacent Elements Product](https://github.com/NORIKIM/Swift-TIL/blob/master/2019/Algorithms/CodeSignal/Intro-adjacentElementsProduct.md)
 
