@@ -101,3 +101,21 @@ func isLucky(n: Int) -> Bool {
 }
 ```
 
+**리펙토링**
+
+```swift
+func isLucky(n: Int) -> Bool {
+    let numArr = String(n).map{Int(String($0))!}
+    let first = numArr[0..<numArr.count / 2]
+    let second = numArr[first.count..<numArr.count]
+    
+   return first.reduce(0,+) == second.reduce(0,+)
+}
+
+```
+
+Reduce(초기값,combine)
+
+reduce(0,+) : first의 각 원소 combine 결과에 0을 (combine에 적었던 조건인 +) 더한다는 의미
+
+초기값이 1이고 더한 값이 3일 때 reduce결과는 4가 된다.
