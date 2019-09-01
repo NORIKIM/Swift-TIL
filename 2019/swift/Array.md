@@ -33,3 +33,12 @@ for i in 0..<a.count{
 }
 ```
 
+**map**
+
+```swift
+var arr = [11,12,13,14,15]
+arr = arr.map{ elem in
+             if elem == 15 { return 1} else { return 0 } }
+// [0,0,0,0,1]
+```
+
