@@ -130,3 +130,19 @@ let strArr = str.components(separatedBy: " ")
 Zedd 블로그 &
 
 [https://hcn1519.github.io/articles/2017-07/swift_Str](https://hcn1519.github.io/articles/2017-07/swift_Str)
+
+<br>
+
+<br>
+
+**formatter**
+
+문자를 내가 원하는 형태로 리턴 받을 수 있도록 해준다
+
+1. 숫자
+
+   ```swift
+   String(format:"%02d",문자로 바꿀 변수명)
+   ```
+
+   "%02d" : 0 - 앞에 0을 붙여준다 / 2 - 2개의 문자 / d - decimal 숫자로
