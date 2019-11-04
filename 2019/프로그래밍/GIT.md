@@ -167,7 +167,7 @@ rm 파일명
 : Modify 파일들이 있는 상태에서 다른 브랜치로 옮겨 작업하고 싶을때 , Modify 파일들을 임시폴더에 저장해놓고 다른 브랜치로 옮겨가 작업 후 나중에 다시 가져올 수 있다.
 
 ```swift
-git statsh
+git stash
 ```
 
 참고 : https://gmlwjd9405.github.io/2018/05/18/git-stash.html
@@ -176,6 +176,15 @@ git statsh
 
 ```swift
 git push origin 현재 브랜치명
+```
+
+**빈 브랜치 만들기**
+
+```swift
+git chekout --orphan 브랜치명
+git rm -rf .
+git commit --allow-empty -m "커밋내용(init 브랜치명)"
+git push origin 브랜치명
 ```
 
 
