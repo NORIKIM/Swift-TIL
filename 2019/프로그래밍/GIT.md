@@ -187,6 +187,18 @@ git commit --allow-empty -m "커밋내용(init 브랜치명)"
 git push origin 브랜치명
 ```
 
+**브랜치명 변경**
+
+```swift
+git branch -m 변경전 변경후
+
+// 브랜치 명이 변경 된 후 이전 브랜치의 파일을 삭제하자
+git push origin :삭제할 이전 브랜치명
+
+// 변경한 새로운 브랜치 업로드
+git push --set-upstream origin 새브런치명
+```
+
 
 
 ## 문제상황 및 해결
