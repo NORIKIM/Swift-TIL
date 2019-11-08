@@ -199,6 +199,12 @@ git push origin :삭제할 이전 브랜치명
 git push --set-upstream origin 새브런치명
 ```
 
+**브랜치 히스토리 확인**
+
+```swift
+git log --all --graph --decorate --oneline
+```
+
 
 
 ## 문제상황 및 해결
