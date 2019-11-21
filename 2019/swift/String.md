@@ -135,9 +135,29 @@ Zedd 블로그 &
 
 <br>
 
-**formatter**
+**Formatter**
 
-문자를 내가 원하는 형태로 리턴 받을 수 있도록 해준다
+date를 내가 원하는 형태로 리턴 받을 수 있도록 해준다
+
+```swift
+let dateFormatter: DateFormatter = {
+  let format = DateFormatter()
+  format.dateStyle = .medium // 날짜를 보여줄 스타일
+  format.timeStyle = .medium // 시간을 보여줄 스타일
+  
+  // 또는 커스텀 형식 >>
+  format.dateFormat = "yyyy/MM/dd hh:mm"
+}
+```
+
+| Pattern                        | Result (in a particular locale)      |
+| :----------------------------- | :----------------------------------- |
+| yyyy.MM.dd G 'at' HH:mm:ss zzz | 1996.07.10 AD at 15:08:56 PDT        |
+| EEE, MMM d, ''yy               | Wed, July 10, '96                    |
+| h:mm a                         | 12:08 PM                             |
+| hh 'o''clock' a, zzzz          | 12 o'clock PM, Pacific Daylight Time |
+| K:mm a, z                      | 0:00 PM, PST                         |
+| yyyyy.MMMM.dd GGG hh:mm aaa    | 01996.July.10 AD 12:08 PM            |
 
 1. 숫자
 
