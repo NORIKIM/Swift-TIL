@@ -20,4 +20,30 @@
 
   스토리보드에서 func tabView를 tab gesture recognizer에 연결해준다.
 
-  
+  <br>
+
+  GestureRecognizer를 Delegate를 사용하여 연결하는것도 가능하다
+
+  ```swift
+  class viewController:UIViewController, UIGestureRecognizerDelegate {
+    
+    override func viewDidLoad {
+      super.viewDidLoad()
+      
+      let gesture = UITabGestureRecognizer()
+      gesture.delegate = self
+      view.addGestureRecognizer(gesture)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+      view.endEditing(true)
+      return true
+    }
+  }
+  ```
+
+  <br>
+
+  **간단한 동작은 target action을!**
+
+  **정교한 동작은 delegate를!**
