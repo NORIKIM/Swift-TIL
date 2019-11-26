@@ -187,6 +187,8 @@ git commit --allow-empty -m "커밋내용(init 브랜치명)"
 git push origin 브랜치명
 ```
 
+빈 브랜치를 생성하게 되면 완전히 분리된 별도의 브랜치가 생성되므로 주의!
+
 **브랜치명 변경**
 
 ```swift
@@ -205,7 +207,13 @@ git push --set-upstream origin 새브런치명
 git log --all --graph --decorate --oneline
 ```
 
+**직전 커밋 메시지 변경**
 
+```
+git commit --amend
+```
+
+--amend 옵션을 지정하고 다시 커밋(입력화면이 표시되므로 코멘트 수정)
 
 ## 문제상황 및 해결
 
