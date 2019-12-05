@@ -210,7 +210,7 @@ git log --all --graph --decorate --oneline
 **직전 커밋 메시지 변경**
 
 ```
-git commit --amend
+git commit --amend 엔터
 ```
 
 --amend 옵션을 지정하고 다시 커밋(입력화면이 표시되므로 코멘트 수정)
