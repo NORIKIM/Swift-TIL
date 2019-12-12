@@ -19,3 +19,7 @@
   기본적으로 Timer.scheduledTimer()이 메소드는 withTimeInterval에 대입되는 값인 0.01초 마다 계속 불리게 된다.
 
   timeSlider를 추적하여 동작이 완료되면 그냥 리턴시키고 아직 동작 중이라면 if 다음의 명령들을 수행
+
+## method
+
+**touchesBegan**: 터치가 발생하면 실행시킬 동작(객체 제외)
