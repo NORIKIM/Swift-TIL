@@ -36,4 +36,17 @@
       }
   ```
 
+**textFieldShouldReturn()**: 키보드의 리턴 버튼을 눌렀을 때 동작
+
+- UITextFieldDelegate를 체택 해야한다
+
+- 예제
+
+  ```swift
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
+  }
+  ```
+
   
