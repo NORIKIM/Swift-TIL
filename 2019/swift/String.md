@@ -166,3 +166,17 @@ let dateFormatter: DateFormatter = {
    ```
 
    "%02d" : 0 - 앞에 0을 붙여준다 / 2 - 2개의 문자 / d - decimal 숫자로
+
+**문자 쪼개기**
+
+문자사이 공백도 다른문자 없이 붙어있는걸 하나씩 분리하려면 FOR문을 사용해야함
+
+```swift
+var num = "123"
+var numArr = [String]()
+
+for i in num.indices {
+  numArr.append(String(num[i]))
+}
+```
+
