@@ -29,6 +29,13 @@ print(goodGrades)
 // Output: [8, 9, 10, 8, 8]
 ```
 
+**특정 값이 포함 되어 있는지 확인**
+
+```swift
+var a = [1,2,3]
+a.contains(2) //true
+```
+
 **특정 값의 위치 찾기**
 
 ```swift
