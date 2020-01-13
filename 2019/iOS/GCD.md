@@ -18,9 +18,9 @@ GCD 기술의 일부
 
 **큐의 유형**
 
-- Serial Dispatch Queue : 한번에 하나의 작업만을 실행하며, 해당 작업이 대기열에서 제외되고 새로운 작업이 시작되기 전까지 기다리는 기본 유형이다.
+- Serial Dispatch Queue(=main) : 한번에 하나의 작업만을 실행하며, 해당 작업이 대기열에서 제외되고 새로운 작업이 시작되기 전까지 기다리는 기본 유형이다.
 
-- Concurrent Dispatch Queue는 시작된 작업의 완료를 기다리지 않고 대기열에 있는 작업을 동시에 별도 스레드를 사용하여 진행한다. (즉, 병렬처리 방식)
+- Concurrent Dispatch Queue(=global) : 시작된 작업의 완료를 기다리지 않고 대기열에 있는 작업을 동시에 별도 스레드를 사용하여 진행한다. (즉, 병렬처리 방식으로 작업의 우선순위는 시스템이 정한다.)
 
 **디스패치 큐의 장점**
 
@@ -66,7 +66,23 @@ Operation Queue에서는
 
 <br>
 
-<출처 : 부스트코스, 애플 문서>
+**!!**
+
+UI업데이트는 반드시 Main Dispatch Queue에서 해야한다. 코코아터치앱에서 UIApplication의 인스턴스가 main thread에 붙기 때문인데 UIApplication은 앱의 run loop를 포함해서 main event loop를 설정하고 처리를 하는데 앱의 main event loop는 터치,제스처 등의 모든 UI 이벤트를 수신한다. 따라서 모든 이벤트는 main thread의 일부가 되며 main thread에서 처리해야한다. 
+
+그런데 만약 main큐에서 동기로 작업을 하게되면 하나의 작업이 끝날 때까지 기다리게되므로 다른 작업을 시작할 수 없다. 이렇게 데드락 상태가 되어 앱이 죽게된다.
+
+<br>
+
+<출처 :
+
+ https://www.edwith.org/boostcourse-ios/lecture/16917/
+
+ https://developer.apple.com/library/archive/documentation/General/Conceptual/ConcurrencyProgrammingGuide/ConcurrencyandApplicationDesign/ConcurrencyandApplicationDesign.html#//apple_ref/doc/uid/TP40008091-CH100-SW1
+
+https://zeddios.tistory.com/516
+
+>
 
 
 
