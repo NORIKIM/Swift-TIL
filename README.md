@@ -41,7 +41,6 @@
 * [String](https://github.com/NORIKIM/Swift-TIL/blob/master/swift/String.md)
 * [struct&class](https://github.com/NORIKIM/Swift-TIL/blob/master/swift/Struct-Class.md)
 * [Typeof](https://github.com/NORIKIM/Swift-TIL/blob/master/swift/Typeof.md)
-* [tableView](https://github.com/NORIKIM/Swift-TIL/blob/master/swift/tableView.md)
 * [UnitTest](https://github.com/NORIKIM/Swift-TIL/blob/master/swift/UnitTest.md)
 
 ## Algorithms
