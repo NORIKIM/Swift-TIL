@@ -12,6 +12,49 @@ for i in 0..<min(linef.count, identic.count) {
 print(Fullstack) // "[A: 1, B: 2, C: 3]"
 ```
 
+- 딕셔너리 값 수정
+
+  ```swift
+  Dictionary.updateValue(Key, forkey: Values)
+  
+  var dic : [Int : String] = [1:"zedd", 2:"swift", 3:"iOS"]
+  
+  dic.updateValue("fun", forKey: 3)
+  
+  print(dic)//[1:"zedd", 2:"swift", 3:"fun"]
+  
+  dic[3] = "iOS"
+  
+  print(dic)//[1:"zedd", 2:"swift", 3:"iOS"]
+  ```
+  
+  ```swift
+  // 사용
+  func palindromeRearranging(inputString: String) -> Bool {
+      var arr = inputString.map{String($0)}
+      var dic = [String:Int]()
+      var count = 0
+      
+      for i in 0 ..< arr.count {
+          if dic[arr[i]] == nil {
+              dic.updateValue(1, forKey: arr[i])
+          } else {
+              dic.updateValue(dic[arr[i]]! + 1, forKey: arr[i])
+          }
+      }
+     
+      for num in dic.values {
+          count += (num % 2)
+      }
+  
+      return count == 0 || count == 1
+  }
+  
+  palindromeRearranging(inputString: "aaabbbccc")//false
+  ```
+  
+  
+
 - 딕셔너리 값 생성 자동화?
 
   **실습해보기**

@@ -2,6 +2,8 @@
 
 # 오토레이아웃
 
+constant : 값 만큼 떨어져있어야 한다 (상단 item relation이)
+
 - 텍스트필드 > Attributes inspector에서 Return Key = Done > Return Key 자동 활성화 확인란 선택 : 텍스트 필드에 텍스트를 입력하기 전에 완료 키를 눌러 빈 문자열이 반환 되지 않도록 함.
 
 <img width="300" src="https://developer.apple.com/library/archive/referencelibrary/GettingStarted/DevelopiOSAppsSwift/Art/BBUI_keyboardattributes_2x.png">

@@ -22,7 +22,7 @@
 
   <br>
 
-  GestureRecognizer를 Delegate를 사용하여 연결하는것도 가능하다
+  - GestureRecognizer를 Delegate를 사용하여 연결하는것도 가능하다
 
   ```swift
   class viewController:UIViewController, UIGestureRecognizerDelegate {

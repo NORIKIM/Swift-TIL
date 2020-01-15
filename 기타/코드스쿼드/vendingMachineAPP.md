@@ -265,3 +265,8 @@ class ViewController: UIViewController {
 
    <img src="https://user-images.githubusercontent.com/31604976/61512647-91f12780-aa35-11e9-842c-823da12508a7.png">
 
+4. 추가 버튼을 누르면 객체 생성 -> 각 버튼에 tag를 부여해서 이벤트 연결?
+
+   addTarget을 이용하여 해결
+  
+5. 생성된 객체를 Inventory에 차곡차곡 저장하기
