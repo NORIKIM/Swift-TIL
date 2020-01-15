@@ -57,9 +57,9 @@ https://o-o-wl.tistory.com/26
 
 참고 및 출처 : https://wkdtjsgur100.github.io/solid-principle/
 
+****
 
-
-객체지향 5원칙!
+**객체지향 5원칙!**
 
 프로그래머가 소스코드를 읽기 쉽고 확장하기 쉬워질 때까지 리펙토링하는 것.(문제가 발생할 가능성을 줄이는 것)
 
@@ -75,15 +75,13 @@ https://o-o-wl.tistory.com/26
 
 ==>> 코드는 유연하게 작성하자 = 클래스의 메소드의 의존성을 낮추는 것 , 추후 수정이 필요한 코드가 있다고 생각하면서 작성해야한다
 
-
+****
 
 ### SOLID원칙을 준수하여 작성한 예제
 
 https://github.com/godrm/ChessMate
 
 Master Branch : 고치기 전 / Review Branch : 고친 후
-
-
 
 **객체와 속성을 분리하고 분류하는 연습을 많이 해봐야 한다. 코드로 구현하기 전에 *CRC카드를 작성하여 이 객체의 knowing과 doing을 명확히 정리하면 더 깔끔하고 유연한 코드 작성에 좋다**
 
