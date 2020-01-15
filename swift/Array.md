@@ -104,3 +104,9 @@ for i in 0 ..< a.count {
 removeMinusOne = a.filter { (number: Int) -> Bool in return number != -1 }
 ```
 
+**배열 특정 위치에 값 삽입**
+
+```swift
+배열.insert(값, at: 위치)
+```
+
