@@ -38,7 +38,7 @@
 * [ErrorHandling](https://github.com/NORIKIM/Swift-TIL/blob/master/swift/ErrorHandling.md)
 * [Get,Set,didSet,willSet](https://github.com/NORIKIM/Swift-TIL/blob/master/swift/GetSet.md)
 * [Optional](https://github.com/NORIKIM/Swift-TIL/blob/master/swift/optional.md)
-* [String](https://github.com/NORIKIM/Swift-TIL/blob/master/swift/StringHandling.md)
+* [String](https://github.com/NORIKIM/Swift-TIL/blob/master/swift/String.md)
 * [struct&class](https://github.com/NORIKIM/Swift-TIL/blob/master/swift/Struct-Class.md)
 * [Typeof](https://github.com/NORIKIM/Swift-TIL/blob/master/swift/Typeof.md)
 * [tableView](https://github.com/NORIKIM/Swift-TIL/blob/master/swift/tableView.md)
