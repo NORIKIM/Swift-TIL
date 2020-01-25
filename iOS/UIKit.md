@@ -61,3 +61,9 @@ var color = <img width="33" src="https://user-images.githubusercontent.com/31604
 이런 식으로 컬러값이 아닌 직접 색상을 고를 수 있다.
 
 직접 색상 값을 이용하려면 -> UIColor(red: CGFloat, Green: CGFloat, Blue: CGFloat )
+
+****
+
+- 색상이 틀릴 때
+
+  <img width="545" src="https://user-images.githubusercontent.com/31604976/73117303-b569d180-3f86-11ea-9642-644e878d9859.png">
