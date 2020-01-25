@@ -49,4 +49,15 @@
   }
   ```
 
-  
+
+**UIColor**
+
+```swift
+var color = Color Literal
+```
+
+var color = <img width="33" src="https://user-images.githubusercontent.com/31604976/73116960-35da0380-3f82-11ea-8b15-13fcd1715d0c.png">
+
+이런 식으로 컬러값이 아닌 직접 색상을 고를 수 있다.
+
+직접 색상 값을 이용하려면 -> UIColor(red: CGFloat, Green: CGFloat, Blue: CGFloat )
