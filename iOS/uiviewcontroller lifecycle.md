@@ -31,5 +31,14 @@
 
 **참고 : https://zeddios.tistory.com/43**
 
+<br>
 
+- loadView()
 
+  nib을 생성하지 않고, 프로그래밍으로 뷰계층을 만들 때 사용
+
+  viewController.view를 생성한다. 아직 self.view가 만들어지지 않았기 때문에 self.view를 read할 수 없다.
+
+  따라서, 뷰를 만들고 나면 해당 뷰를 *self.view = 만든view* 해줘야 한다
+
+  (loadView 실행을 완료 후 뷰가 생성되면 viewDidLoad 실행된다.)
