@@ -43,6 +43,21 @@ iOS 등 애플의 개발 플랫폼을 이용하다 보면 외부 라이브러리
 5. 프로젝트 import
     이제 xcworkspace로 작업을 한다
     설치한 라이브러리를 import 해준다
-    
- 
 
+
+**AfriwanLib**
+ 
+안드로이드의 toast 구현
+
+https://diponten.com/2019/07/08/toast/
+
+코코아팟을 이용하면 쉽게 구현가능하다
+```plain Text
+target 'MyApp' do
+  pod 'AfriwanLib'
+end
+```
+```swift
+import AfriwanLib
+toast(message: "your message", view: self.view)
+```
