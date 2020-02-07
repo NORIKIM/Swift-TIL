@@ -3,7 +3,8 @@
 **이미지 적용**
 
 ```swift
-객체명.setImage(UIImage(named:"이미지세트명"), for: UIControl.State.normal)
+버튼.setImage(UIImage(named:"이미지세트명"), for: UIControl.State.normal)
+이미지 = UIImage(named: "이미지 파일명")
 ```
 
 **음악파일 적용**
