@@ -97,6 +97,7 @@ let user = User(userID: "burak", nameSurname: "burak", email: "burak", password:
 print(user.userDictionary)
 ```
 
+
 **value로 key값 가져오기**
 
 ```swift
@@ -116,3 +117,11 @@ let drinks = ["Soft Drinks": ["Cocoa-Cola", "Mountain Dew", "Sprite"],
 print(self.findKeyForValue("Orange", dictionary: drinks))
 ```
 
+
+**해당하는 인덱스의 key와 value 가져오기**
+
+```swift
+let weatherDic = ["해":"sunny","구름":"cloudy","비":"rainy","눈":"snowy"]
+let key = Array(weatherDic.keys)[인덱스번호]
+let value = Array(weatherDic.values)[인덱스번호]
+```
