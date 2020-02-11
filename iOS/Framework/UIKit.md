@@ -76,3 +76,30 @@ var color = <img width="33" src="https://user-images.githubusercontent.com/31604
   let img = UIImage(name: "사진")
   이미지뷰 객체명.restorationIdentifier = "사진"
   ```
+  
+## Class
+  
+**UINavigaionController**
+
+ ► UINavigationBar
+
+<img width="630" src="https://user-images.githubusercontent.com/31604976/74205651-9de75400-4cbb-11ea-83ad-6f470ff1895b.png">
+
+- Color
+
+    Bar Tint: 네비게이션 바 자체 배경 색
+    
+<img width="405" src="https://user-images.githubusercontent.com/31604976/74206131-64174d00-4cbd-11ea-8ee5-ec6d87c23fe7.png">
+    
+    Large Title Color: 왼쪽 사진
+    
+    Title Color: 오른쪽 사진
+    
+    Background:바 버튼 항목의 배경
+    
+    Tint: 바 버튼 항목의 폰트 색상
+    
+    
+    
+
+
