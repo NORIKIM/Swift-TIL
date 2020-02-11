@@ -67,3 +67,12 @@ var color = <img width="33" src="https://user-images.githubusercontent.com/31604
 - 색상이 틀릴 때
 
   <img width="545" src="https://user-images.githubusercontent.com/31604976/73117303-b569d180-3f86-11ea-9642-644e878d9859.png">
+  
+  **UIImageView**
+  
+  이미지뷰의 파일 이름을 가지고 오고 싶을 때
+  
+  ```swift
+  let img = UIImage(name: "사진")
+  이미지뷰 객체명.restorationIdentifier = "사진"
+  ```
