@@ -97,5 +97,22 @@ let user = User(userID: "burak", nameSurname: "burak", email: "burak", password:
 print(user.userDictionary)
 ```
 
+**value로 key값 가져오기**
 
+```swift
+func findKeyForValue(value: String, dictionary: [String: String]) ->String? {
+        for (key, array) in dictionary {
+            if (array.contains(value)) {
+                return key
+            }
+        }
+
+        return nil
+}
+
+let drinks = ["Soft Drinks": ["Cocoa-Cola", "Mountain Dew", "Sprite"],
+        "Juice" :["Orange", "Apple", "Grape"]]
+
+print(self.findKeyForValue("Orange", dictionary: drinks))
+```
 
