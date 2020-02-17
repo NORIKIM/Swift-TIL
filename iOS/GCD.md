@@ -51,7 +51,39 @@ GCD 기술의 일부
 
 ****
 
-**GCD와 Operation Queue의 차이점**
+***DispatchQueue(GCD)와 Operation Queue의 차이점***
+
+OperationQueue는 NSOperationQueue로 iOS2에서 처음 소개되었고,
+
+DispatchQueue(Grand Central Dispatch = GCD)는 iOS4에서 처음 소개되었다.
+
+이 두 API의 목적이 같기 때문에 어느 것을 사용해야 하는지 햇갈릴 수 있다.
+
+
+
+Operation은 GCD를 상위 수준으로 추상화한 API로 의존성을 제공한다. 이 말은 개발자가 일련의 작업에 순서와 갯수를 정할 수 있다는 것이고, 하나의 작업이 다른 작업에 의존성을 갖고 있다면 이 작업은 해당 작업들이 모두 끝난 후에 시작할 수 있다.
+
+
+
+**Operation은 정지,취소,재시작 될 수 있다. 그러나 GCD는 작업에 대한 어떠한 통제권도 갖지 못한다. 따라서, Operation이 보다 작업의 Life Cycle에 유연함을 제공한다는 것을 알 수 있다.**
+
+
+
+일반적으로 애플에서는 고수준의 API를 사용할 것을 권장한다.  새로운 iOS 버전의 출시마다 운영체제의 효율을 증가시키기 위해 프레임워크와 라이브러리의 최적화 작업을 수행한다. 이러한 작업은 보통 저수준API의 영향을 받기도 하고 심지어 그 위에 존재하는 고수준API의 영향을 받기도 한다.
+
+(= Operation과 GCD 둘중 어느 것을 사용하는지는 개발자의선택에 따름)
+
+
+
+어떠한 작업들의 순서를 지정해줄 필요가 있다면 Operation을 사용하지만, 짧은 시간안에 수십개의 작업을 생성해야 할 경우엔 Operation에 내재된 오버헤드로 성능 문제가 발생할 수 있다.
+
+GCD는 Operation을 사용하여 일련의 작업을 수행하기 위한 코드에 비해 적은 양의 코드로도 같은 행위가 가능하다. GCD도 FIFO형태를 사용하여 작업을 처리 할 수 있고, 순서 상관없이 처리 할 수도 있다. 
+
+이처럼 **특정 작업의 순서를 지정해주는 것처럼 Operation이 갖고 있는 이점을 사용하는 것이 아니라면 GCD를 사용해도 무방하다.**
+
+
+
+즉,
 
 Operation Queue에서는
 
@@ -82,7 +114,7 @@ UI업데이트는 반드시 Main Dispatch Queue에서 해야한다. 코코아터
 
 https://zeddios.tistory.com/516
 
->
+https://baked-corn.tistory.com/134
 
 
 
