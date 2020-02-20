@@ -87,3 +87,7 @@
 
 - Programmers
   - [멀쩡한삼각형](https://github.com/NORIKIM/Swift-TIL/blob/master/Algorithms/Programmers/멀쩡한사각형.md)
+
+## 기타
+
+- [시뮬레이터 사진첩에 사진 저장하는 방법](https://github.com/NORIKIM/Swift-TIL/blob/master/기타/SaveImageInSimulator.md)
