@@ -122,9 +122,17 @@ track 의 추적에서 제외 시키기
 
 참고 : [http://kyejusung.com/2015/05/userinterfacestate-xcuserstate-%ED%8C%8C%EC%9D%BC-git-tracking%EC%97%90%EC%84%9C-%EC%A0%9C%EC%99%B8%EC%8B%9C%ED%82%A4%EA%B8%B0/](http://kyejusung.com/2015/05/userinterfacestate-xcuserstate-파일-git-tracking에서-제외시키기/)
 
+**gitignore 파일을 생성하는 간단한 방법**
 
+소스트리 - 우측 설정 - 고급 - 편집
+
+추적을 원하지 않는 파일 확장자(예>*.log)
+
+또는 특정 파일(파일명.확장자)
 
 **gitignore을 해도 추적되는 경우**
+
+.gitignore 파일에 작성한 파일이 이미 버전 관리가 되고 있으면 git은 이 파일을 원래대로 추적한다. 따라서 수동으로 삭제한다.
 
 ```swift
 git rm --cached 추적되는 파일명
