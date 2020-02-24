@@ -36,4 +36,18 @@
         print("접근 제한")
     }
 }
-   ```
+```
+
+
+
+## PHFetchOptions
+
+**sort descriptor keys**
+
+| Fetch Method                                                 | Keys                                                         |
+| :----------------------------------------------------------- | ------------------------------------------------------------ |
+| PHAsset                                                      | `SELF`, [`localIdentifier`](apple-reference-documentation://hsF7XT1nc8), [`creationDate`](apple-reference-documentation://hsHbLWqWE_), [`modificationDate`](apple-reference-documentation://hsNjjXooCJ), [`mediaType`](apple-reference-documentation://hs18L9DajR), [`mediaSubtypes`](apple-reference-documentation://hsgbKs0Ok3), [`duration`](apple-reference-documentation://hsmIJ5BAvQ), [`pixelWidth`](apple-reference-documentation://hsXtGeA_OK), [`pixelHeight`](apple-reference-documentation://hsT3ixewxB), [`isFavorite`](apple-reference-documentation://hsY1NeZvgc) (or `isFavorite`), [`isHidden`](apple-reference-documentation://hsx8f_PWyo) (or `isHidden`), burstIdentifier |
+| PHAssetCollection                                            | `SELF`, [`localIdentifier`](apple-reference-documentation://hsF7XT1nc8), [`localizedTitle`](apple-reference-documentation://hsynUKRr8l) (or `title`), [`startDate`](apple-reference-documentation://hssQZzIdR6), [`endDate`](apple-reference-documentation://hsJtksbXTu), estimatedAssetCount |
+| PHCollectionList                                             | `SELF`, [`localIdentifier`](apple-reference-documentation://hsF7XT1nc8), [`localizedTitle`](apple-reference-documentation://hsynUKRr8l) (or `title`), [`startDate`](apple-reference-documentation://hsnfD-sJ15), endDate |
+| PHCollection (can fetch a mix of `PHCollectionList`and `PHAssetCollection`objects) | `SELF`, [`localIdentifier`](apple-reference-documentation://hsF7XT1nc8), [`localizedTitle`](apple-reference-documentation://hsynUKRr8l) (or `title`), [`startDate`](apple-reference-documentation://hsnfD-sJ15), endDate |
+
