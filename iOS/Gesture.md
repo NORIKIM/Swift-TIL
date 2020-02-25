@@ -1,5 +1,9 @@
 # Gesture
 
+**간단한 동작은 target action을!**
+
+**정교한 동작은 delegate를!**
+
 - UITabGestureRecognizer
 
   tabGestureRecognizer가 올라간 뷰 또는 객체를 탭하게 되면 발생하는 액션
@@ -44,6 +48,20 @@
 
   <br>
 
-  **간단한 동작은 target action을!**
+## UILabel에 적용
 
-  **정교한 동작은 delegate를!**
+```swift
+@IBOutlet weak var fromCountryLB: UILabel!
+    
+override func viewDidLoad() {
+  super.viewDidLoad()
+        
+  let tapLabel = UITapGestureRecognizer(target:    
+  self, action: #selector(self.handle(_:)))
+  self.fromCountryLB.isUserInteractionEnabled = true    
+  fromCountryLB.addGestureRecognizer(tapLabel)
+}
+```
+
+
+
