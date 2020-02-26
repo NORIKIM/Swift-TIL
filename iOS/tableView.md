@@ -79,3 +79,32 @@ class ViewController: UIViewController {
 
 
 XIB를 사용하여 테이블뷰의 셀을 등록하는 방법 : https://zeddios.tistory.com/297
+
+
+
+## 값 넘겨주기
+
+- Override prepare(for segue: UIStoryboardSegue, sender: Any?)
+
+  선택한 셀의 정보를 다른 뷰로 넘겨주고 싶을 때 사용한다.
+
+  값을 가지고 있는 테이블뷰 컨트롤러 위치에서 생성하여 다른뷰의 프로퍼티에 전달한다.
+
+  ```swift
+  // 선택한 도시의 상세 정보 넘겨주기
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let detailVC = segue.destination as! DetailViewController
+    guard let indexPath = self.cityTableView.indexPathForSelectedRow else { return }
+    let cell = cityTableView.cellForRow(at: indexPath) as! cityCellView
+          
+    detailVC.selectCity = cell.cityNameLB.text!
+    
+    detailVC.degree = cell.cityDegreeLB.text!
+    
+    detailVC.weather = cell.weatherImg.restorationIdentifier!
+    
+    detailVC.rainProbability = cell.cityRainProbabilityLB.text!
+  }
+  ```
+
+  
