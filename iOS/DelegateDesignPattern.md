@@ -48,3 +48,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
 <img width="284" alt="delegate" src="https://user-images.githubusercontent.com/31604976/53941977-f18d0d00-40fc-11e9-82e3-64e072bee823.png">
 <img width="284" alt="delegate" src="https://user-images.githubusercontent.com/31604976/53942096-3fa21080-40fd-11e9-95f1-a07a61d34e90.png">
+
+## 딜리게이트를 이용하여 다른뷰에 데이터 전달
+
+참고 : https://zeddios.tistory.com/310
