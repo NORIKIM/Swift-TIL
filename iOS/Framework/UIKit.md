@@ -78,7 +78,7 @@ var color = <img width="33" src="https://user-images.githubusercontent.com/31604
   ```
   
 ## Class
-  
+
 **UINavigaionController**
 
  ► UINavigationBar
@@ -89,6 +89,7 @@ var color = <img width="33" src="https://user-images.githubusercontent.com/31604
 
     Bar Tint: 네비게이션 바 자체 배경 색
     
+
 <img width="405" src="https://user-images.githubusercontent.com/31604976/74206131-64174d00-4cbd-11ea-8ee5-ec6d87c23fe7.png">
     
     Large Title Color: 왼쪽 사진
@@ -98,8 +99,19 @@ var color = <img width="33" src="https://user-images.githubusercontent.com/31604
     Background:바 버튼 항목의 배경
     
     Tint: 바 버튼 항목의 폰트 색상
-    
-    
-    
+
+​    
+
+**UITextField**
+
+텍스트 필드에 값 입력시 왼쪽 끝이 아닌 위치 커스텀하기
+
+```swift
+let padding = UIView(frame: CGRect(x: 0, y: 0, width: prefixLB.frame.width + 20, height: 34)))
+currencyTF.leftView = padding
+currencyTF.leftViewMode = .always
+```
+
+<img src="https://user-images.githubusercontent.com/31604976/75735051-ee8f2180-5d3c-11ea-9ec6-3d27fca26eb9.png">
 
 
