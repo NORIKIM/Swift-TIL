@@ -108,7 +108,7 @@ print(makeNumericArrayBy(rawInput: "(10,10)-(3,3)"))
         : charactersIn에 주어진 character를 string에서 제거하여 새로운 string 리턴
     
 
-## split과 components 차이
+## 문자 쪼개기
 
 ```swift
 let str = "1 2 "
@@ -122,9 +122,21 @@ let strArr = str.components(separatedBy: " ")
 // strArr["1","2",""]
 ```
 
+```swift
+let str = "123"
+for i in str.indices {
+  print(str[i])
+}
+// 1
+// 2
+// 3
+```
+
+
+
 < 참고 사이트 >
 
-Zedd 블로그 &
+https://zeddios.tistory.com/74
 
 [https://hcn1519.github.io/articles/2017-07/swift_Str](https://hcn1519.github.io/articles/2017-07/swift_Str)
 
@@ -161,21 +173,6 @@ let dateFormatter: DateFormatter = {
    ```
 
    "%02d" : 0 - 앞에 0을 붙여준다 / 2 - 2개의 문자 / d - decimal 숫자로
-   
-   
-
-## 문자 쪼개기
-
-문자사이 공백도 다른문자 없이 붙어있는걸 하나씩 분리하려면 FOR문을 사용해야함
-
-```swift
-var num = "123"
-var numArr = [String]()
-
-for i in num.indices {
-  numArr.append(String(num[i]))
-}
-```
 
 ## 특정 위치의 문자 찾기
 
