@@ -10,14 +10,25 @@ iOS 등 애플의 개발 플랫폼을 이용하다 보면 외부 라이브러리
     sudo gem install cocoapods
     ```
     <br>
+    
+    터미널 삭제
+    
+        ```
+    sudo gem uninstall cocoapods
+        ```
+    
+    
+    
 2. 적용
     터미널을 이용하여 코코아팟을 적용하고 싶은 프로젝트 경로로 들어간다. (xcodeproj파일이 있는곳)
+    
     ```plain Text
     pod init
     ```
     Potfile 생성 확인
     
     <br>
+    
 3. 라이브러리 다운
     (Podfile이 있는 경로!) Podfile을 수정하고 저장
     ```plain Text
@@ -30,6 +41,7 @@ iOS 등 애플의 개발 플랫폼을 이용하다 보면 외부 라이브러리
     end
     ```
     <br>
+    
 4. pod install
     pod install 을 입력
     
@@ -40,6 +52,7 @@ iOS 등 애플의 개발 플랫폼을 이용하다 보면 외부 라이브러리
     라고 뜨면 성공
     
     <br>
+    
 5. 프로젝트 import
     이제 xcworkspace로 작업을 한다
     설치한 라이브러리를 import 해준다
