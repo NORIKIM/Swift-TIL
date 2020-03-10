@@ -122,3 +122,43 @@ print(reversed)
         return playerName
     }
   ```
+
+## @escaping
+
+함수 인자로 전달된 클로저가 함수 실행 종료 이후에 실행될 수 있는 것
+
+
+
+다만, 함수 밖 어딘가의 변수 등에 할당되면서 클로저의 참조 횟수를 증가시킬 수 있고 이 경우, 함수 외부에서도 참조 횟수를 관리해야 하는 어려움이 있다.
+
+```swift
+var completionHandlers: [() -> Void] = []
+
+func escape(completionHandler: @escaping () -> Void) {
+    completionHandlers.append(completionHandler)
+}
+
+func noEscape(closure: () -> Void) {
+    closure()
+}
+
+class SomeClass {
+    var x = 10
+    func doSomething() {
+        escape { self.x = 100 }
+        noEscape { x = 200 }
+    }
+}
+
+let instance = SomeClass()
+instance.doSomething()
+print(instance.x)
+// Prints "200"
+
+completionHandlers.first?()
+print(instance.x)
+// Prints "100"
+```
+
+
+
