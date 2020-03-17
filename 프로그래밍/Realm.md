@@ -100,6 +100,10 @@ func getDocumentsDirectory() -> URL {
     let documentsDirectory = paths[0]
      return documentsDirectory
 }
+
+OR
+
+print(Realm.Configuration.defaultConfiguration.fileURL!)
 ```
 
 getDocumentsDirectory 리턴값을 출력하면 콘솔창에 Realm Studio 파일의 경로가 나타난다.
