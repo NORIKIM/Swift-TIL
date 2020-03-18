@@ -113,3 +113,60 @@ getDocumentsDirectory 리턴값을 출력하면 콘솔창에 Realm Studio 파일
 <br>
 
 참고 : https://tonyw.tistory.com/3
+
+## 데이터 변동 실시간 반영
+
+Realm documents :
+
+https://realm.io/docs/swift/latest/#notifications
+
+
+
+**Collection notifications**
+
+​    Realm 전체를 알려주지는 않지만 변경 설명을 자세히 해준다.
+
+​    collection notification은
+
+​        마지막 알림으로부터 추가, 삭제, 수정된 객체의 인덱스로 구성되어있다. 
+
+​        처음에는 초기 결과와 함께 비동기적으로 전달되며, write 후 다시 전달된다.
+
+RealmCollectionChange reference :
+
+https://realm.io/docs/swift/4.3.2/api/Enums/RealmCollectionChange.html#/s:10RealmSwift0A16CollectionChangeO7initialyACyxGxcAEmlF
+
+<br>
+
+```swift
+notificationToken = 오브젝트배열프로퍼티.observe { [weak self] (changes: RealmCollectionChange) in
+    guard let tableView = self?.테이블뷰아울렛 else { return }
+    switch changes {
+       case .initial:
+         tableView.reloadData()
+       case .update(_, let deletions, let insertions, let modifications):
+        // 쿼리 결과가 변경되어 테이블에 적용
+        tableView.beginUpdates()
+        // 삭제, 삽입, 변경에 대해 항상 업데이트
+        // 삭제 전 삽입 핸들링은 예상치 못한 동작이 발생 할 수 있다.
+        tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}), with: .automatic)
+        tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }), with: .automatic)
+        tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }), with: .automatic)
+        tableView.endUpdates()
+        case .error(let error):
+        // 백그라운드 작업 스레드에서 Realm 파일을 열고 있는 동안 에러가 발생했다.
+          fatalError("\(error)")
+      }
+    }
+  }
+
+// 객체 정리하기
+  deinit {
+    // 알림해제
+      notificationToken?.invalidate()
+  }
+```
+
+- RealmCollectionChange : Realm 알림이 보고하는 컬렉션의 변경에 대한 정보를 캡슐화한다.
+  - Initial : 쿼리의 초기 실행이 완료되었으며 차단 작업을 수행하지 않고도 수집을 사용할 수 있음을 나타냄
+  - Update : 객체를 변경하거나 수정됨을 나타냄
