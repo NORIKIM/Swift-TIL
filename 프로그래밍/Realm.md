@@ -55,6 +55,17 @@ var player: Results<Player>
 player = realm.objects(Player.self)
 ```
 
+```swift
+// 실습예제
+@IBAction func check(_ sender: UIButton) {
+  let result = realm?.objects(ShoppingList.self).filter("name Contains[cd] %@", itemTF.text).sorted(byKeyPath: "name", ascending: true)
+}
+// itemTF.text에 입력된 값으로 시작하는 모든 데이터 반환
+// 만약 'name Contains[cd] %@' -> 'name = %@' 면, 입력된 값에 해당하는 데이터만 반환
+```
+
+
+
 ## U
 
 ```swift
@@ -79,7 +90,25 @@ do {
 }
 ```
 
+```swift
+// 실습예제
+@IBAction func deleteData(_ sender: UIButton) {
+    do {
+      try realm?.write {
+          guard let result = realm?.objects(ShoppingList.self).filter("name = %@", itemTF.text).first else { return }
+          realm?.delete(result)
+        }
+    } catch {
+        print("Error")
+    }
+}
+```
+
+
+
 ## 쿼리 작성
+
+Realm 문서 : https://realm.io/docs/swift/latest/#filtering
 
 player 변수를 이용하여 작성한다.
 
@@ -89,6 +118,8 @@ playerList = playerList.filter("name Contains[cd] %@", "kim").sorted(byKeyPath: 
 ```
 
 <img src="https://user-images.githubusercontent.com/31604976/76733920-194d9100-67a5-11ea-86a1-c5c50750caf6.jpeg">
+
+
 
 <br>
 
