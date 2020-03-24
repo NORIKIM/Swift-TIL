@@ -215,6 +215,18 @@ git push --set-upstream origin 새브런치명
 git log --all --graph --decorate --oneline
 ```
 
+**원격저장소 브랜치 확인**
+
+```swift
+git branch -r
+```
+
+**로컬,원격저장소 브랜치 확인(모든 브랜치)**
+
+```swift
+git branch -a
+```
+
 **직전 커밋 메시지 변경**
 
 ```
@@ -229,7 +241,29 @@ git commit --amend 엔터
 git reset HEAD (+파일명)
 ```
 
+**clone한 저장소의 원격브랜치 작업 확인**
+
+```swift
+git chekcout origin/jina
+```
+
+원격 브랜치를 먼저 확인 후 원하는 브랜치로 체크아웃한다.
+
+detached HEAD로 체크아웃하게 되며 다른 브랜치로 체크아웃하면 사라진다.
+
+**clone한 저장소의 원격브랜치 체크아웃**
+
+```swift
+git checkout -t origin/jina
+```
+
+
+
 ## 문제상황 및 해결
 
 master가 아닌 다른 브랜치에서 작업을 완료하고 `git push origin 브랜치명` 후 깃헙에서 pull request를 하라구 알림이 뜬다 -> 머지 제한 걸려있는 마스터나 다른 브랜치에 머지를 하고 싶으면 풀리퀘를 날려! 라는 뜻 비정상인 상황이 아니다 -> 풀리퀘와는 별개로 브랜치 관리만 잘하면 꼬이지 않음
+
+
+
+
 
