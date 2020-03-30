@@ -173,6 +173,20 @@ let dateFormatter: DateFormatter = {
    ```
 
    "%02d" : 0 - 앞에 0을 붙여준다 / 2 - 2개의 문자 / d - decimal 숫자로
+   
+2. 문자인 숫자의 셋째자리 콤마
+
+   ```swift
+   func decimalNumber(value: Int) -> String{
+     let numberFormatter = NumberFormatter()
+     numberFormatter.numberStyle = .decimal
+     guard let result = numberFormatter.string(from: NSNumber(value: value)) else { return "" }
+           
+   return result
+   }
+   ```
+
+   
 
 ## 특정 위치의 문자 찾기
 
