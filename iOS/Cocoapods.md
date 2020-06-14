@@ -1,6 +1,10 @@
 # Cocopods
 iOS 등 애플의 개발 플랫폼을 이용하다 보면 외부 라이브러리를 사용해야 하는 경우가 생기는데, 이때 외부 라이브러리 들을 쉽게 관리해줄수 있는 스위프트와 오브젝티브c cocoa 프로젝트 의존성 관리 도구이다. 수많은 라이브러리를 보유하고 있으며 많은 앱에서 사용되고 있다.
 
+#### 주의 사항
+
+프로젝트 이름과 코코아팟 이름과 동일하면 안된다.
+
 ## 사용방법
 
 <br>
@@ -15,11 +19,9 @@ iOS 등 애플의 개발 플랫폼을 이용하다 보면 외부 라이브러리
     
     터미널 삭제
     
-        ```
+    ```swif
     sudo gem uninstall cocoapods
-        ```
-    
-    
+    ```
     
 2. 적용
     터미널을 이용하여 코코아팟을 적용하고 싶은 프로젝트 경로로 들어간다. (xcodeproj파일이 있는곳)
@@ -149,3 +151,15 @@ toast(message: "your message", view: self.view)
    ```
 
 4. 다시 pod install 해주면 정상 설치된다.
+
+**RxSwift**
+
+```swift
+target 'RXSwift' do
+
+pod 'RxSwift'
+pod 'RxCocoa'
+
+end
+```
+
