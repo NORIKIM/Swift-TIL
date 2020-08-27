@@ -114,4 +114,17 @@ currencyTF.leftViewMode = .always
 
 <img src="https://user-images.githubusercontent.com/31604976/75735051-ee8f2180-5d3c-11ea-9ec6-3d27fca26eb9.png">
 
+## struct
+
+**UIInterfaceOrientationMask**
+
+기기의 화면의 방향 설정
+
+- portrait : 뒤집기 불가
+- landscapeLeft : 가로 왼쪽만
+- landscapeRight : 가로 오른쪽만
+- portraitUpsideDown : 뒤집기 포함한 세로
+- landscape : 가로
+- all : 모든 방향
+- allButUpsideDown : 세로뒤집기 제외 모든방향
 

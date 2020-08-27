@@ -37,7 +37,7 @@ let a = 5
     //-------------------------main----------------------------
     let regex = RegularExpression.makeJsonData(split: splitInput).values
     // [10, "jk", 4, "314", 99, "crong", false]
-       
+    
         for i in regex {
             print(i.isSame(val: String.self)) // 원소가 문자열인지 확인
         }
@@ -50,3 +50,26 @@ let a = 5
     true
     false
     */
+
+## 타입비교
+
+```swift
+var str = "h"
+
+if type(of: str) is String.Type {
+  print("str is String")
+} else {
+  print("str is not String")
+}
+```
+
++
+
+```swift
+var str = ["h"]
+
+if str[0] is String {
+  print("str[0] is String")
+}
+```
+
