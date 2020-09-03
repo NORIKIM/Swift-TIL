@@ -1,5 +1,13 @@
 # Array
 
+**String to Arrary**
+
+```swift
+let string = "abcdefg"
+let arr = Arrary(string)
+// arr = ["a","b","c","d","e","f","g"]
+```
+
 **중복제거**
 
 ```swift
