@@ -247,3 +247,13 @@ https://shaeod.tistory.com/228
 https://zeddios.tistory.com/340
 
 https://stackoverflow.com/questions/61090503/initializer-init-requires-that-decimal-conform-to-binaryinteger
+
+<br>
+
+## 첫번째 문자만 가져오기
+
+```swift
+let string = "hello"
+let first = string.removeFirst() // h
+```
+
