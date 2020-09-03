@@ -203,3 +203,47 @@ let range2 = String(str.prefix(3))
 index(_:offsetBy) -> String
 
 Prefix(_:) -> ArraySlice<Element>
+
+
+
+## ASCII
+
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile5.uf.tistory.com%2Fimage%2F216CE84C52694FF02054D4">
+
+- Unicode -> Int(UInt32)
+
+  ```swift
+  var char = "A"
+  UnicodeScalar(char)?.value // 65
+  ```
+
+  ```swift
+  let value = "abcDEF"
+  for index in value.utf16 {
+    print(index) // 97,98,99 ~
+  }
+  ```
+
+- Int(UInt32) to Unicode
+
+  ```swift
+  let num = 97
+  if let num = UnicodeScalar(num) {
+    print(num) // a
+  }
+  ```
+
+- UInt32 to Int
+
+  ```swift
+  let ascii = UnicodeScalar(char)?.value
+  let number = Int(truncating: ascii as! NSNumber)
+  ```
+
+참고 :
+
+https://shaeod.tistory.com/228
+
+https://zeddios.tistory.com/340
+
+https://stackoverflow.com/questions/61090503/initializer-init-requires-that-decimal-conform-to-binaryinteger
