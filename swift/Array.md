@@ -1,10 +1,10 @@
 # Array
 
-**String to Arrary**
+**String to Array**
 
 ```swift
 let string = "abcdefg"
-let arr = Arrary(string)
+let arr = Array(string)
 // arr = ["a","b","c","d","e","f","g"]
 ```
 
