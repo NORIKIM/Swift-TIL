@@ -257,6 +257,19 @@ detached HEAD로 체크아웃하게 되며 다른 브랜치로 체크아웃하�
 git checkout -t origin/jina
 ```
 
+**이미 push한 commit 메세지 변경**
+
+```swift
+git rebase HEAD~[거슬러 올라가고 싶은 커밋 수] -i
+// 바로 직전 push라면 
+// git rebase HEAD~1 -i
+
+이렇게 엔터를 쳐주면 vim이 켜지고 'pick' -> 'reword'로 바꾼 후 저장(:wq!)
+푸시했던 커밋 메시지 창이 나타나면 메시지를 수정하고 저장(:wq!)
+
+git push --force
+```
+
 
 
 ## 문제상황 및 해결
