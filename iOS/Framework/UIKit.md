@@ -114,6 +114,22 @@ currencyTF.leftViewMode = .always
 
 <img src="https://user-images.githubusercontent.com/31604976/75735051-ee8f2180-5d3c-11ea-9ec6-3d27fca26eb9.png">
 
+
+
+**UIBlurEffect**
+
+설정하려는 뷰의 뒤를 블러처리해주는 클래스
+
+```swift
+let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
+blurEffectView = UIVisualEffectView(effect: blurEffect)
+blurEffectView.frame = self.view.bounds
+blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+self.view.addSubview(blurEffectView)
+```
+
+<img width=300 src="https://user-images.githubusercontent.com/31604976/99070362-67948780-25f3-11eb-9083-f3616e0cf56c.PNG">
+
 ## struct
 
 **UIInterfaceOrientationMask**
