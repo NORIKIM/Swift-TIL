@@ -118,3 +118,22 @@ removeMinusOne = a.filter { (number: Int) -> Bool in return number != -1 }
 배열.insert(값, at: 위치)
 ```
 
+**forEach**
+
+````swift
+let arr = [1,2,3]
+
+arr.forEach{ num in
+    print(num)
+}
+````
+
+```swift
+myImages.forEach{ UIImageView in
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(gesture:)))
+        tap.numberOfTapsRequired = 1
+        tap.delegate = self
+        view.addGestureRecognizer(tap)
+ }
+```
+
