@@ -146,6 +146,7 @@ https://zeddios.tistory.com/74
 
 date를 내가 원하는 형태로 리턴 받을 수 있도록 해준다
 
+Date -> String
 ```swift
 let dateFormatter: DateFormatter = {
   let format = DateFormatter()
@@ -155,6 +156,16 @@ let dateFormatter: DateFormatter = {
   // 또는 커스텀 형식 >>
   format.dateFormat = "yyyy/MM/dd hh:mm"
 }
+```
+
+String -> Date
+String 날짜와 변환할 때 포맷이 똑같아야 한다.
+```swift
+let dateFormat = DateFormatter()
+dateFormat.dateFormat = "yyyy/MM/dd hh:mm"
+dateFormat.timeZone = NSTimeZone(name:"UTC") as TimeZone?
+
+let date = dateFormat.date(from: stringDate)!
 ```
 
 | Pattern                        | Result (in a particular locale)      |
