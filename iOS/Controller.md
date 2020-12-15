@@ -4,6 +4,12 @@ popViewController(animated: Bool) : 뷰컨트롤러를 pop하여 이전 화면�
 
 정보의 흐름,깊이를 따라서 뷰의 전환이 이뤄지게 된다. (애플 기본 앱 중 설정이 가장 대표적인 예)
 
+## 스토리보드 내 컨트롤러 연결하기
+```swift
+let secondView = self.storyboard?.instantiateViewController(withIdentifer: "second") as! SecondViewController
+self.navigationController?.pushViewController(secondeView, animated: true)
+```
+
 # UIImagePickerController
 
 이미지를 가져올 수 있도록 해준다.
