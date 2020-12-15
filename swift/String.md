@@ -268,3 +268,17 @@ let string = "hello"
 let first = string.removeFirst() // h
 ```
 
+## NSMutableAttributedString
+String에 문자 외 다른 타입을 삽입 할 수 있도록 해주는 클래스
+ex. 문자에 이미지 삽입
+
+```swift
+let attributedString = NSMutableAttributedString(string: "")
+let attachment = NSTextAttachment()
+let image = UIImage(named: "image.jpg")
+
+attachment.image = image
+attachment.bounds = CGRect(x:0, y:0, width:100, height:100) // 이미지의 위치와 사이즈 지정
+attributedString.append(NSAttributedString(attachment: attachment))
+textField.attributedText = attributedString
+```
