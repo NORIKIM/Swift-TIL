@@ -146,7 +146,8 @@ https://zeddios.tistory.com/74
 
 date를 내가 원하는 형태로 리턴 받을 수 있도록 해준다
 
-Date -> String
+- Date -> String
+
 ```swift
 let dateFormatter: DateFormatter = {
   let format = DateFormatter()
@@ -158,8 +159,9 @@ let dateFormatter: DateFormatter = {
 }
 ```
 
-String -> Date
+- String -> Date
 String 날짜와 변환할 때 포맷이 똑같아야 한다.
+
 ```swift
 let dateFormat = DateFormatter()
 dateFormat.dateFormat = "yyyy/MM/dd hh:mm"
@@ -267,7 +269,7 @@ https://stackoverflow.com/questions/61090503/initializer-init-requires-that-deci
 let string = "hello"
 let first = string.removeFirst() // h
 ```
-
+<br>
 ## NSMutableAttributedString
 String에 문자 외 다른 타입을 삽입 할 수 있도록 해주는 클래스
 ex. 문자에 이미지 삽입
