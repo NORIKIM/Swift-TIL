@@ -1,0 +1,9 @@
+# Data
+<br>
+## 일반
+스토리보드 ID를 이용해서 단순한 데이터를 전달할 때 사용
+
+```swift
+let second = self.storyboard.instantiateViewController(withIdentifier: “second”) as! SecondViewController
+second.firstVCImage = firstImage
+```
