@@ -1,8 +1,12 @@
 # UIKit
 
-**UIProgressView**: 테스크의 동작 시간을 보여줌(값 조정 불가)
+## UIProgressView
 
-**UISlider** : 슬라이드 버튼을 통해 값의 조정이 가능 
+테스크의 동작 시간을 보여줌(값 조정 불가)
+
+## UISlider
+
+슬라이드 버튼을 통해 값의 조정이 가능 
 
 - isTracking: UIControl ?
 
@@ -20,37 +24,7 @@
 
   timeSlider를 추적하여 동작이 완료되면 그냥 리턴시키고 아직 동작 중이라면 if 다음의 명령들을 수행
 
-## method
-
-**touchesBegan**: 터치가 발생하면 실행시킬 동작(객체 제외)
-
-- UITextFieldDelegate를 체택 해야한다
-
-- 예제
-
-  화면의 빈 곳을 터치하면 키보드가 내려간다.
-
-  ```swift
-   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-          view.endEditing(true)
-      }
-  ```
-
-**textFieldShouldReturn()**: 키보드의 리턴 버튼을 눌렀을 때 동작
-
-- UITextFieldDelegate를 체택 해야한다
-
-- 예제
-
-  ```swift
-  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    textField.resignFirstResponder()
-    return true
-  }
-  ```
-
-
-**UIColor**
+## UIColor
 
 ```swift
 var color = Color Literal
@@ -67,19 +41,20 @@ var color = <img width="33" src="https://user-images.githubusercontent.com/31604
 - 색상이 틀릴 때
 
   <img width="545" src="https://user-images.githubusercontent.com/31604976/73117303-b569d180-3f86-11ea-9642-644e878d9859.png">
-  
-  **UIImageView**
-  
-  이미지뷰의 파일 이름을 가지고 오고 싶을 때
-  
-  ```swift
-  let img = UIImage(name: "사진")
-  이미지뷰 객체명.restorationIdentifier = "사진"
-  ```
-  
-## Class
+## UIImageView
 
-**UINavigaionController**
+이미지뷰의 파일 이름을 가지고 오고 싶을 때
+
+```swift
+let img = UIImage(name: "사진")
+이미지뷰 객체명.restorationIdentifier = "사진"
+```
+
+
+
+## *Class--------------------------*
+
+## UINavigaionController
 
  ► UINavigationBar
 
@@ -102,7 +77,7 @@ var color = <img width="33" src="https://user-images.githubusercontent.com/31604
 
 ​    
 
-**UITextField**
+## UITextField
 
 텍스트 필드에 값 입력시 왼쪽 끝이 아닌 위치 커스텀하기
 
@@ -114,9 +89,22 @@ currencyTF.leftViewMode = .always
 
 <img src="https://user-images.githubusercontent.com/31604976/75735051-ee8f2180-5d3c-11ea-9ec6-3d27fca26eb9.png">
 
+**textFieldShouldReturn()**: 키보드의 리턴 버튼을 눌렀을 때 동작
+
+- UITextFieldDelegate를 체택 해야한다
+
+- 예제
+
+  ```swift
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
+  }
+  ```
 
 
-**UIBlurEffect**
+
+## UIBlurEffect
 
 설정하려는 뷰의 뒤를 블러처리해주는 클래스
 
@@ -130,9 +118,9 @@ self.view.addSubview(blurEffectView)
 
 <img width=300 src="https://user-images.githubusercontent.com/31604976/99070362-67948780-25f3-11eb-9083-f3616e0cf56c.PNG">
 
-## struct
+## *struct--------------------------------*
 
-**UIInterfaceOrientationMask**
+## UIInterfaceOrientationMask
 
 기기의 화면의 방향 설정
 
