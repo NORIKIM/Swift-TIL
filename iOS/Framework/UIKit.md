@@ -123,6 +123,10 @@ self.view.addSubview(blurEffectView)
 스크롤뷰를 사용하여 이미지 확대 및 축소
 
 ```swift
+스토리보드에서 스크롤뷰를 생성하면 자동으로 스크롤뷰 내에 생기는 Layout Guide는 삭제한 후 스크롤뷰에 들어갈 객체를 삽입한다.
+```
+
+```swift
 class ViewController: UIViewController, UIScrollViewDelegate {
   @IBOutlet weak var scrollView: UIScrollView!
   
