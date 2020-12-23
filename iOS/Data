@@ -7,3 +7,9 @@
 let second = self.storyboard.instantiateViewController(withIdentifier: “second”) as! SecondViewController
 second.firstVCImage = firstImage
 ```
+
+## 라이브러리
+
+### Realm
+
+-> https://github.com/NORIKIM/Swift-TIL/blob/master/iOS/Realm.md
