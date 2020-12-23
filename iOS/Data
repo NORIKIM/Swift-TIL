@@ -8,6 +8,16 @@ let second = self.storyboard.instantiateViewController(withIdentifier: “second
 second.firstVCImage = firstImage
 ```
 
+## Core Data
+
+디바이스에 데이터를 저장할 때 사용하며 영구적으로 저장이 가능하다.
+
+UserDefaults가 app setting같은 간단한 정보를 저장하기에 적합하다면 Core Data는 복잡하고 큰 user data를 저장하기에 적합하다.
+
+그러나 Core Data가 데이터베이스는 아니다. Core Data는 객체 그래프를 관리하는 프레임워크이다. 객체 그래프를 디스크에 저장하여 객체에 더 중심을 둔다.
+
+SQLite보다 많은 메모리를 사용하고, 더 많은 저장공간이 필요하지만 더 빠르게 데이터를 가져온다.
+
 
 
 ## 라이브러리
