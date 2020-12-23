@@ -8,8 +8,20 @@ let second = self.storyboard.instantiateViewController(withIdentifier: “second
 second.firstVCImage = firstImage
 ```
 
+
+
 ## 라이브러리
 
 ### Realm
 
 -> https://github.com/NORIKIM/Swift-TIL/blob/master/iOS/Realm.md
+
+객체 중심의 데이터베이스로 ORM이 아니다
+
+> ORM : Object Relatonal Mapping
+>
+> 객체와 관계형 데이터베이스의 데이터를 자동으로 매핑해주는 것
+>
+> 데이터를 접근하는 간단한 업무도 많은 쿼리문 작업이 필요하여 속도가 느리다
+
+따라서, 백그라운에서 적용되는 SQL 쿼리문을 실행하지 않는다. 키-값 타입의 저장방식이 아닌 객체를 직접 디스크에 유지한다. 이로 인해 메모리 상의 객체를 빠르게 가져올 수 있고 메인 스레드에서 데이터를 읽기/쓰기 작업을 할 수 있다.
