@@ -118,6 +118,28 @@ self.view.addSubview(blurEffectView)
 
 <img width=300 src="https://user-images.githubusercontent.com/31604976/99070362-67948780-25f3-11eb-9083-f3616e0cf56c.PNG">
 
+## UIScrollView
+
+스크롤뷰를 사용하여 이미지 확대 및 축소
+
+```swift
+class ViewController: UIViewController, UIScrollViewDelegate {
+  @IBOutlet weak var scrollView: UIScrollView!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    scrollView.alwaysBounceVertical = false
+    scrollView.alwaysBounceHorizontal = false
+    scrollView.minimumZoomScale = 1.0
+    scrollView.maximumZoomScale = 2.0
+    scrollView.delegate = self
+  }
+}
+```
+
+
+
 ## *struct--------------------------------*
 
 ## UIInterfaceOrientationMask
