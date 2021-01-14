@@ -10,6 +10,12 @@
 Calendar.currnet // not tracking changes that user makes to their settings
 Calendar.autoupdatingCurrnet // tracks changes to the user’s preferred calendar
 ```
+```swift
+// comparisonResult
+.orderedAscending : A < B
+.orderedDescending : A > B
+.orderedSame : A = B
+```
 
 ## 날짜 비교
 
