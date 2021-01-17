@@ -151,6 +151,13 @@ let lb = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
 self.view.addSubview(lb)
 ```
 
+줄바꿈
+
+```swift
+lb.text = "first \n second \n third"
+lb.numberOfLines = 3
+```
+
 
 
 ## *struct--------------------------------*
