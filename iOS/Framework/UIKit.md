@@ -142,6 +142,15 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 }
 ```
 
+## UILabel
+
+코드로 생성
+
+```swift
+let lb = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+self.view.addSubview(lb)
+```
+
 
 
 ## *struct--------------------------------*
