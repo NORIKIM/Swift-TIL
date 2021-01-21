@@ -158,6 +158,20 @@ lb.text = "first \n second \n third"
 lb.numberOfLines = 3
 ```
 
+## UIScrollView
+
+컨테인 뷰를 스크롤링하고 확대해주는 뷰
+
+스크롤뷰는 content와 frame을 효과적으로 제어하기 위해 기본적으로 Content Layout Guide와 Frame Layout Guide를 제공한다.
+
+- Content Layout Guide와 Frame Layout Guide
+
+  Content Layout Guide : 컨텐츠 영역과 관련된 오토레이아웃 제약 조건을 만들 때 사용
+
+  Frame Layout Guide : 스크롤뷰 자체 오토레이아웃 제약 조건을 만들 때 사용
+
+> 스크롤뷰를 사용하기 위해서는 스크롤뷰 안에 보여지는 컨텐츠의 사이즈를 꼭 정해줘야 한다. 
+
 
 
 ## *struct--------------------------------*
