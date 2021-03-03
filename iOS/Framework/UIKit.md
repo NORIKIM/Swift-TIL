@@ -174,7 +174,7 @@ lb.numberOfLines = 3
 
 
 
-## *struct--------------------------------*
+## *Struct--------------------------------*
 
 ## UIInterfaceOrientationMask
 
@@ -187,4 +187,20 @@ lb.numberOfLines = 3
 - landscape : 가로
 - all : 모든 방향
 - allButUpsideDown : 세로뒤집기 제외 모든방향
+
+## *Function------------------------------*
+
+## UIGrapicsBeginImageContextWithOptions
+
+비트맵 그래픽을 특정 옵션을 통해 생성
+```swift
+UIGrapicsBeginImageContextWithOptions(size: CGSize, opaque: Bool, scale: CGFloat) 
+```
+size: UIGraphicsGetImageFromCurrentImageConext()로 부터 리턴받는 이미지의 사이즈를 재설정한다. 비트맵 크기를 픽셀 단위로 가져오려면 가로세로 값과 scale 파라미터의 값을 곱한다.
+<br>
+opaque: 비트맵의 불투명 여부
+        true는 완전히 불투명하다는 것을 알고 있으면 알파채널을 무시하고
+            비트맵 저장소를 최적화 한다.
+        false는 부분적으로 투명한 픽셀을 처리하려면 알파 채널이 포함되야한다.
+scale: 비트맵에 적용할 스케일 사이즈. 0.0으로 설정하면 디바이스 기본 화면 스케일을 설정한다.
 
