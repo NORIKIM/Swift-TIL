@@ -192,13 +192,13 @@ lb.numberOfLines = 3
 
 ## UIGrapicsBeginImageContextWithOptions
 
-비트맵 그래픽을 특정 옵션을 통해 생성
+비트맵 이미지를 특정 옵션을 통해 생성한다.
 
 ```swift
 UIGrapicsBeginImageContextWithOptions(size: CGSize, opaque: Bool, scale: CGFloat) 
 ```
 
-size: UIGraphicsGetImageFromCurrentImageConext()로 부터 리턴받는 이미지의 사이즈를 재설정한다. 비트맵 크기를 픽셀 단위로 가져오려면 가로세로 값과 scale 파라미터의 값을 곱한다.
+size: UIGraphicsGetImageFromCurrentImageConext()로 부터 리턴받는 이미지의 사이즈를 재설정한다. 비트맵 이미지의 사이즈는 size에 입력된 가로세로 값과 scale 파라미터의 값을 곱한 값이다.
 
 opaque: 비트맵의 불투명 여부
 
@@ -207,4 +207,21 @@ opaque: 비트맵의 불투명 여부
 - false는 부분적으로 투명한 픽셀을 처리하려면 알파 채널이 포함되야한다.
 
 scale: 비트맵에 적용할 스케일 사이즈. 0.0으로 설정하면 디바이스 기본 화면 스케일을 설정한다.
+
+
+> 보통 다음 단계를 따라 이미지를 생성한다.
+
+```swift
+// bitmap context를 생성하고 이를 graphics stack에 넣는다.
+UIGrapicsBeginImageContextWithOptions(image.Size, false, image.scale)
+
+let rect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+image.draw(in: rect) // bitmap context에 이미지를 그린다.
+
+// bitmap context로부터 이미지를 가져온다.
+let bitmapContextImage = UIGrapicsGetImageFromCurrentImageContext()
+
+// grapics stack에서 bitmap context를 빼낸다.
+UIGrapicsEndImageContext()
+```
 
