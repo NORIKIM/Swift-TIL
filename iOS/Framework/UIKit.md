@@ -225,3 +225,6 @@ let bitmapContextImage = UIGrapicsGetImageFromCurrentImageContext()
 UIGrapicsEndImageContext()
 ```
 
+참고 :
+https://soulpark.wordpress.com/tag/uigraphicsbeginimagecontextwithoptions/
+https://developer.apple.com/documentation/uikit/1623912-uigraphicsbeginimagecontextwitho
