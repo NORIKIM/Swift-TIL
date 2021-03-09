@@ -156,7 +156,7 @@ func insert(name: String, age: String, photo: UIImage, date: Date) {
 > 데이터베이스 데이터 삭제
 
 ```swift
-func delete(row: Int32) {
+func delete(row: Int32) { 
     let delete = "DELETE FROM myDB WHERE id = ?"
     var statement: OpaquePointer? = nil
     
@@ -177,12 +177,18 @@ func delete(row: Int32) {
 ```
  
  > 데이터베이스 테이블 확인하는 방법
+ 
  DB Browser를 이용할 수 있다.
  먼저, sqlite 파일 위치를 확인한다
+ 
  1. 경로이동 cd Library/Developer/CoreSimulator/Devices
+ 
  2. 파일이름으로 상세경로 찾기 find $PWD -name "myDB.sqlite" -print
+ 
  3. 상세경로 /Users/oingbong/Library/Developer/CoreSimulator/Devices/시뮬레이터 identifier/data/Containers/Data/Application/앱 암호화 이름/Documents/myDB.sqlite
+ 
  4. 테이블 열기 open /Users/user이름/Library/Developer/CoreSimulator/Devices/시뮬레이터 identifier/data/Containers/Data/Application/앱 암호화 이름/Documents/myDB.sqlite
+ 
 
 
 ## 라이브러리
