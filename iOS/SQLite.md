@@ -70,6 +70,10 @@ func createTable() {
 }
 ```
 
+- autoincrement : 추가 CPU, 메모리, 디스크 공간 및 디스크 오버헤드를 부과하므로 필요하지 않은 경우에는 사용하지 않아야 한다. autoincrement의 목적은 이전에 삭제 된 행에서 ROWID의 재사용을 방지하는 것으로 일반적으로 사용할 일은 거의 없다.
+
+참고: https://www.debugcn.com/ko/article/21337327.html
+
 > 데이터베이스 테이블 읽어오기
 
 ```swift
