@@ -140,6 +140,20 @@ https://zeddios.tistory.com/74
 
 [https://hcn1519.github.io/articles/2017-07/swift_Str](https://hcn1519.github.io/articles/2017-07/swift_Str)
 
+
+
+## 문자 쪼개서 배열에 넣기
+
+```swift
+let str = "ab"
+let arr = str.map{$0} // ["a","b"]
+
+let str2 = ["ab","cd"]
+let arr2 = str2.map{$0.map{$0}} // [["a","b"],["c","d"]]
+```
+
+
+
 <br>
 
 ## Formatter
