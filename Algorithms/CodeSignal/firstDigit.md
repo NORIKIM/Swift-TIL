@@ -46,5 +46,7 @@ func firstDigit(inputString: String) -> Character {
 ```
 
 filter를 이용해서 문자열 각 요소들에서 숫자로 변형 가능한지 체크하여 숫자만 리턴
+
 마지막에 first를 넣어주는 것은 string을 character로 리턴 시켜주기 때문
+
 만약 파리미터 값으로 “zbc_1_2”라면 ‘12’ 리턴
