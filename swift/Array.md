@@ -22,6 +22,19 @@ arr.removeDuplicates()
 // [1,3,2]
 ```
 
+- set 이용 하기
+
+  set은 중복된 요소를 허용 하지 않는다
+
+```swift
+func removeDuplicate(str : String) -> Int {
+  let arr =  str.map{$0}
+  return Set(arr).count
+}
+```
+
+
+
 **조건에 맞는 모든 값 찾기**
 
 ```swift
