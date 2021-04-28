@@ -132,7 +132,13 @@ for i in str.indices {
 // 3
 ```
 
+## 문자열에서 숫자만 가져와 배열만들기
 
+```swift
+let str = “123abc45”
+let num = str.components(separatedBy: CharacterSet.decimalDigits.inverted)
+// num = [“123”,”45”]
+```
 
 < 참고 사이트 >
 
