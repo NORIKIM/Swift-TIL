@@ -259,6 +259,26 @@ range = str에서 "e"를 찾기 위한 시작값부터 끝값까지의 값
 (1...10).isEmpty    // false
 ```
 
+## 문자 잘라내기
+
+- 특정 위치에서부터 끝까지 자르기
+
+  ```swift
+  let str = "abcdefg"
+  let idx = str.index(str.startIndex, offsetBy: 3)
+  let result = String(str[idx...]) // defg
+  ```
+
+- 처음부터 특정 위치까지 자르기
+
+  ```swift
+  let str = "abcdefg"
+  let idx = str.index(str.startIndex, offsetBy: 3)
+  let result = String(str[...idx]) //abcd
+  ```
+
+  
+
 ## ASCII
 
 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile5.uf.tistory.com%2Fimage%2F216CE84C52694FF02054D4">
