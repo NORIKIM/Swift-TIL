@@ -237,7 +237,27 @@ index(_:offsetBy) -> String
 
 Prefix(_:) -> ArraySlice<Element>
 
+## 특정 문자의 위치 찾기
 
+```swift
+let str = "hello"
+var idx = 0
+
+if let range = str.range(of:"e") {
+  idx = str.distance(from: str.startIndex, to: range.lowerBound) // idx = 1
+}
+```
+
+range = str에서 "e"를 찾기 위한 시작값부터 끝값까지의 값
+
+.lowerBound = range의 시작값
+
+```
+(1...10).lowerBound // 1  시작값
+(1...10).upperBound // 10 끝값
+(1...10).count      // 10
+(1...10).isEmpty    // false
+```
 
 ## ASCII
 
