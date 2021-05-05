@@ -252,6 +252,8 @@ range = str에서 "e"를 찾기 위한 시작값부터 끝값까지의 값
 
 .lowerBound = range의 시작값
 
+++ str.range(of:"e", options: .backwards)라고 옵션을 넣어주면 뒤에서 부터 검색
+
 ```
 (1...10).lowerBound // 1  시작값
 (1...10).upperBound // 10 끝값
