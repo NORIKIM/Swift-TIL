@@ -284,7 +284,15 @@ range = str에서 "e"를 찾기 위한 시작값부터 끝값까지의 값
   let result = String(str[...idx]) //abcd
   ```
 
+- 앞에서 몇 개, 뒤에서 몇 개만 자르기
 
+  ```swift
+  let str = "abcdefg"
+  let pre = str.prefix(3) // 앞에서 3개 //abc
+  let suf = str.suffix(3) // 뒤에서 3개 // efg
+  ```
+
+  
 
 ## 첫번째 문자만 가져오기
 
