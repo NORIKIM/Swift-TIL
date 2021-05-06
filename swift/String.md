@@ -286,7 +286,15 @@ let string = "hello"
 let first = string.removeFirst() // h
 ```
 
-## 
+## 문자열 뒤집기
+
+```swift
+let str = "hello"
+let reversed = String(str.reversed())
+// olleh
+```
+
+
 
 ## ASCII
 
