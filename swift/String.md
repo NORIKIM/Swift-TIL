@@ -279,7 +279,14 @@ range = str에서 "e"를 찾기 위한 시작값부터 끝값까지의 값
   let result = String(str[...idx]) //abcd
   ```
 
-  
+## 첫번째 문자만 가져오기
+
+```swift
+let string = "hello"
+let first = string.removeFirst() // h
+```
+
+## 
 
 ## ASCII
 
@@ -323,15 +330,8 @@ https://zeddios.tistory.com/340
 
 https://stackoverflow.com/questions/61090503/initializer-init-requires-that-decimal-conform-to-binaryinteger
 
-<br>
 
-## 첫번째 문자만 가져오기
 
-```swift
-let string = "hello"
-let first = string.removeFirst() // h
-```
-<br>
 ## NSMutableAttributedString
 String에 문자 외 다른 타입을 삽입 할 수 있도록 해주는 클래스
 ex. 문자에 이미지 삽입
