@@ -267,8 +267,13 @@ range = str에서 "e"를 찾기 위한 시작값부터 끝값까지의 값
 
   ```swift
   let str = "abcdefg"
+  // 첫번째 방법
   let idx = str.index(str.startIndex, offsetBy: 3)
   let result = String(str[idx...]) // defg
+  
+  // 두번째 방법
+  let findIdx:String.Index = str.firstIndex(of: "d")!
+  let result = str[findIdx...] // defg
   ```
 
 - 처음부터 특정 위치까지 자르기
@@ -278,6 +283,8 @@ range = str에서 "e"를 찾기 위한 시작값부터 끝값까지의 값
   let idx = str.index(str.startIndex, offsetBy: 3)
   let result = String(str[...idx]) //abcd
   ```
+
+
 
 ## 첫번째 문자만 가져오기
 
