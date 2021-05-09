@@ -13,6 +13,7 @@
 		3C83A45024741AF600A548A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C83A44E24741AF600A548A4 /* Main.storyboard */; };
 		3C83A45224741AFD00A548A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C83A45124741AFD00A548A4 /* Assets.xcassets */; };
 		3C83A45524741AFD00A548A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C83A45324741AFD00A548A4 /* LaunchScreen.storyboard */; };
+		3CDE955A2647C3DB00F9B8C8 /* QRGeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDE95592647C3DB00F9B8C8 /* QRGeneratorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3C83A45124741AFD00A548A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C83A45424741AFD00A548A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C83A45624741AFD00A548A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CDE95592647C3DB00F9B8C8 /* QRGeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGeneratorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				3C83A44A24741AF600A548A4 /* SceneDelegate.swift */,
 				3C83A44C24741AF600A548A4 /* ViewController.swift */,
 				3C83A44E24741AF600A548A4 /* Main.storyboard */,
+				3CDE95592647C3DB00F9B8C8 /* QRGeneratorViewController.swift */,
 				3C83A45124741AFD00A548A4 /* Assets.xcassets */,
 				3C83A45324741AFD00A548A4 /* LaunchScreen.storyboard */,
 				3C83A45624741AFD00A548A4 /* Info.plist */,
@@ -141,6 +144,7 @@
 				3C83A44D24741AF600A548A4 /* ViewController.swift in Sources */,
 				3C83A44924741AF600A548A4 /* AppDelegate.swift in Sources */,
 				3C83A44B24741AF600A548A4 /* SceneDelegate.swift in Sources */,
+				3CDE955A2647C3DB00F9B8C8 /* QRGeneratorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
