@@ -50,6 +50,22 @@ let img = UIImage(name: "사진")
 이미지뷰 객체명.restorationIdentifier = "사진"
 ```
 
+URL을 이용해 이미지 넣어주기
+
+```swift
+//url에 정확한 이미지 url 주소를 넣는다.
+let url = URL(string: image.url)
+var image : UIImage?
+//DispatchQueue를 쓰는 이유 -> 이미지가 클 경우 이미지를 다운로드 받기 까지 잠깐의 멈춤이 생길수 있다. (이유 : 싱글 쓰레드로 작동되기때문에)
+//DispatchQueue를 쓰면 멀티 쓰레드로 이미지가 클경우에도 멈춤이 생기지 않는다.
+DispatchQueue.global().async {
+  let data = try? Data(contentsOf: url!)
+  DispatchQueue.main.async {
+    image = UIImage(data: data!)
+  }
+}
+```
+
 
 
 ## *Class--------------------------*
