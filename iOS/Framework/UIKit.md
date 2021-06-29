@@ -24,6 +24,36 @@
 
   timeSlider를 추적하여 동작이 완료되면 그냥 리턴시키고 아직 동작 중이라면 if 다음의 명령들을 수행
 
+thumb 사이즈 및 이미지 변경
+
+- thumb 사이즈를 조절해주는 속성이 없으므로 setThumbImage메소드를 사용하여 커스텀한다.
+
+  별도 이미지를 넣어주거나 UIView를 이용해 모양을 만들어 적용한다.
+
+  ```swift
+  // thumb 원형의 모양을 살리고 싶다면 이렇게 UIView를 이용하여 커스텀한다.
+  func sliderThumbImage() -> UIImage {
+          // thumb모양을 만들어줄 뷰
+          let thumbView = UIView(frame: CGRect(x: 0, y: 0, width: 13, height: 13))
+          thumbView.backgroundColor = #colorLiteral(red: 0.2717596889, green: 0.2611109018, blue: 0.9987623096, alpha: 1)
+          thumbView.layer.cornerRadius = thumbView.frame.height / 2
+          
+          // thumb UIView를 UIImage로 변환하여 리턴
+          let renderer = UIGraphicsImageRenderer(bounds: thumbView.bounds)
+          return renderer.image { (context) in
+              thumbView.layer.render(in: context.cgContext)
+          }
+  }
+  ```
+
+  ```swift
+  let thumbImg = self.sliderThumbImage()
+  self.timeSlider.setThumbImage(thumbImg, for: .normal)
+  self.timeSlider.setThumbImage(thumbImg, for: .highlighted)
+  ```
+
+  
+
 ## UIColor
 
 ```swift
