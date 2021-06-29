@@ -70,6 +70,16 @@ DispatchQueue.global().async {
 
 ## *Class--------------------------*
 
+## UIButton
+
+시스템이미지 적용
+
+```swift
+버튼.setImage(UIImage(systemName: "play.fill"), for: .normal)
+```
+
+
+
 ## UINavigaionController
 
  ► UINavigationBar
