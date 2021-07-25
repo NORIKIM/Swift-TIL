@@ -125,3 +125,26 @@ let weatherDic = ["해":"sunny","구름":"cloudy","비":"rainy","눈":"snowy"]
 let key = Array(weatherDic.keys)[인덱스번호]
 let value = Array(weatherDic.values)[인덱스번호]
 ```
+
+**값 분류하여 추가**
+
+```swift
+// 가지고 있는 값
+// [["yello","hat"],
+//  ["blue","eyewear"],
+//  ["green","hat"]]
+// hat과 eyewear key로 분류하여 개수 정리하기
+
+var dic = [String:Int]()
+
+for type in clothes {
+  if dic[type[1]] != nil {
+    dic[tpye[1]] += 1
+  } else {
+    dic[type[1]] = 1
+  }
+}
+
+// 결과 = ["hat": 2, "eyewear": 1]
+```
+
