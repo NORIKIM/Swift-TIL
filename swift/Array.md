@@ -150,3 +150,29 @@ myImages.forEach{ UIImageView in
  }
 ```
 
+**배열 계속 돌기**
+
+```swift
+// 프로그래머스 완전 탐색 - 모의고사에서 적용했던 방법
+// 크기가 다른 두개의 배열의 값을 비교할 때
+
+let answer = [1,2,3,4,5,6]
+let num = [1,2,3,4,5]
+// answer를 끝까지 돌면 마지막 6은 num의 첫번째와 비교하도록..
+
+var count = 0
+for i in 0 ..< answer.count {
+  // i는 answer인덱스 끝까지 돌고
+  // idx는 끝까지 돌다가 다시 처음으로 돌아감
+  let idx = i % num.count 
+  if num[idx] == answer[i] {
+    count += 1
+  }
+}
+/*
+i     0 1 2 3 4 5  
+idx   0 1 2 3 4 0 
+count 1 2 3 4 5
+*/
+```
+
