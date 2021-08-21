@@ -29,11 +29,7 @@
 import UIKit
 
 class WeatherViewController: UIViewController {  
-  private let dateFormatter: DateFormatter = { // 날짜 포맷
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "EEEE, MMM d"
-    return dateFormatter
-  }()
+  
   private let tempFormatter: NumberFormatter = { // 온도 포맷
     let tempFormatter = NumberFormatter()
     tempFormatter.numberStyle = .none
@@ -50,6 +46,9 @@ class WeatherViewController: UIViewController {
   override func viewDidLoad() {
     viewModel.locationName.bind { [weak self] locationName in
       self?.cityLabel.text = locationName
+    }
+    viewModel.date.bind { [weak self] date in
+      self?.dateLabel.text = date
     }
 //    geocoder.geocode(addressString: ) { [weak self] locations in
 //      guard
