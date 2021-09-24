@@ -196,16 +196,16 @@ let callToDoctor2 = PowerRanger(rawValue: "레드") //nil
 let callToDoctor3 = PowerRanger(rawValue: "블루") //blue
 ```
 
-
+> Deinitialization -> [여기에서 알아보자](https://github.com/NORIKIM/Swift-TIL/blob/master/swift/ARC.md)
 
 - 상속
 
   스위프트는 다중상속을 지원하지 않는다. 다중 상속의 개념을 적용 하고 싶을 때는 프로토콜을 이용하면된다. -> 다중상속을 지원하지 않는 이유?
 
   -> 구조의 복잡도를 낮추기 위함
-  
+
   (슈퍼클래스->서브클래스->서브클래스 의 상속은 가능)
-  
+
 - override
 
   프로퍼티 오버라이딩 : 프로터티 자체가 아니라 프러터피 의 접근자getter,설정자setter,감시자observer
@@ -216,9 +216,34 @@ let callToDoctor3 = PowerRanger(rawValue: "블루") //blue
 
   Preventing: 재정의를 원하지 않을 때는 키워드 앞에 final키워드를 붙여주기만 하면 오버라이드를 못하게 막을 수 있다. 상속을 못하게 하려면 private키워드를 붙여주면 된다.
 
-> Deinitialization
+```swift
+class Vehicle {
+    var speed = 0
+    
+    func makeNoise() {
+        print("ON")
+    }
+}
 
-[여기에서 알아보자](https://github.com/NORIKIM/Swift-TIL/blob/master/swift/ARC.md)
+class Train: Vehicle {
+    override func makeNoise() {
+      // 수퍼클래스의 함수 그대로 실행하고 싶을 때
+        super.makeNoise()
+        print("choo choo")
+    }
+}
+
+let train = Train()
+train.makeNoise()
+
+// 결과
+// ON
+// choo choo
+```
+
+
+
+
 
 ## Struct
 
