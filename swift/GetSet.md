@@ -139,3 +139,36 @@ var score: Int = 0 {
 
 
 
+추가 예제
+
+```swift
+class StepCounter {
+    var totalSteps: Int = 0 {
+        willSet(newTotalSteps) {
+            print("totalSteps을 \(newTotalSteps)로 설정하려고 합니다")
+        }
+        didSet(oldTotalSteps) {
+          if totalSteps > oldTotalSteps  { 
+            print("\(totalSteps - oldTotalSteps)걸음이 추가되었습니다.")
+          }
+        }
+    }
+}
+
+let stepCounter = StepCounter()
+stepCounter.totalSteps = 200
+// About to set totalSteps to 200
+// Added 200 steps
+
+stepCounter.totalSteps = 360
+// About to set totalSteps to 360
+// Added 160 steps
+
+stepCounter.totalSteps = 896
+// About to set totalSteps to 896
+// Added 536 steps
+
+
+출처: https://zeddios.tistory.com/247 [ZeddiOS]
+```
+
