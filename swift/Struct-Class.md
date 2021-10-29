@@ -241,6 +241,40 @@ train.makeNoise()
 // choo choo
 ```
 
+```swift
+// 부모클래스와 자식클래스의 프로퍼티 재정의
+class Vehicle {
+    var speed = 0
+    var description: String {
+        return "Speed is \(speed)"
+    }
+    
+    func makeNoise() {
+        print("ON")
+    }
+}
+
+class Train: Vehicle {
+    var grade = 1
+    override var description: String {
+        return super.description + " and grade \(grade)."
+    }
+    
+    override func makeNoise() {
+        super.makeNoise()
+        print("choo choo")
+    }
+}
+
+let train = Train()
+train.speed = 30
+train.grade = 3
+
+print(train.description)
+// 결과
+// Speed is 30 and grade 3.
+```
+
 
 
 
