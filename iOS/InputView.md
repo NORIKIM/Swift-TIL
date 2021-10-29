@@ -1,5 +1,7 @@
 # InputView
 
+**textview와 textField에서만 동작**
+
 텍스트필드와 같이 키보드 입력이 필요한 상황에 inputView를 띄운다. (키보드가 올라오는 영역)
 
 inputVIew의 컨트롤러 -> UIInputViewController
