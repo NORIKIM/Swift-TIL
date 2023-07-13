@@ -1,0 +1,6 @@
+framework module Pods_MVVMPractice2 {
+  umbrella header "Pods-MVVMPractice2-umbrella.h"
+
+  export *
+  module * { export * }
+}
