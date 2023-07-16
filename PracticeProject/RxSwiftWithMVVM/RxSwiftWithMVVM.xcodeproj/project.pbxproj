@@ -14,6 +14,7 @@
 		2532B7382A63E3C500582427 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2532B7372A63E3C500582427 /* Assets.xcassets */; };
 		2532B73B2A63E3C500582427 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2532B7392A63E3C500582427 /* LaunchScreen.storyboard */; };
 		2532B7442A63E4D700582427 /* SuperStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2532B7432A63E4D700582427 /* SuperStar.swift */; };
+		2532B7472A63E53400582427 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2532B7462A63E53400582427 /* Util.swift */; };
 		87029AECFB0B661E170C1143 /* Pods_RxSwiftWithMVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62DFDD5327CA9BBAFD59976 /* Pods_RxSwiftWithMVVM.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		2532B73A2A63E3C500582427 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2532B73C2A63E3C500582427 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2532B7432A63E4D700582427 /* SuperStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperStar.swift; sourceTree = "<group>"; };
+		2532B7462A63E53400582427 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		A62DFDD5327CA9BBAFD59976 /* Pods_RxSwiftWithMVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftWithMVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DC28C6752D8EAD893865B6 /* Pods-RxSwiftWithMVVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftWithMVVM.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftWithMVVM/Pods-RxSwiftWithMVVM.debug.xcconfig"; sourceTree = "<group>"; };
 		DA871E7ABA2731318935910B /* Pods-RxSwiftWithMVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftWithMVVM.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftWithMVVM/Pods-RxSwiftWithMVVM.release.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 		2532B72D2A63E3C300582427 /* RxSwiftWithMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				2532B7452A63E52D00582427 /* Data */,
 				2532B7422A63E4C800582427 /* Model */,
 				2532B72E2A63E3C300582427 /* AppDelegate.swift */,
 				2532B7302A63E3C300582427 /* SceneDelegate.swift */,
@@ -83,6 +86,14 @@
 				2532B7432A63E4D700582427 /* SuperStar.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2532B7452A63E52D00582427 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2532B7462A63E53400582427 /* Util.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		59E9FC362D97504AE3F40441 /* Frameworks */ = {
@@ -219,6 +230,7 @@
 			files = (
 				2532B7332A63E3C300582427 /* ViewController.swift in Sources */,
 				2532B72F2A63E3C300582427 /* AppDelegate.swift in Sources */,
+				2532B7472A63E53400582427 /* Util.swift in Sources */,
 				2532B7312A63E3C300582427 /* SceneDelegate.swift in Sources */,
 				2532B7442A63E4D700582427 /* SuperStar.swift in Sources */,
 			);
