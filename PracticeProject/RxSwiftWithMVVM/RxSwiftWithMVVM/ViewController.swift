@@ -12,9 +12,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        configureTableView()
     }
 
+    private func registerCell() {
+        tb.register(UINib(nibName: "SuperStarCell", bundle: nil), forCellReuseIdentifier: "SuperStarCell")
+    }
+    
+    func configureTableView() {
+        registerCell()
+        tb.rowHeight = 90
+    }
 
 }
 
