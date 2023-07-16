@@ -43,6 +43,16 @@ class AppServerClient {
             }
         }
     }
-    
-    
+}
+
+fileprivate extension AppServerClient.GetFriendsFailureReason {
+    func getErrorMessage() -> String? {
+        switch self {
+        case .unAuthorized:
+            return "Please login to load your friends."
+        case .notFound:
+            return "Could not complete request, please try again."
+        }
+        
+    }
 }
